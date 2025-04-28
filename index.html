@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <div id="cursor-fx"></div>
+
+    
+    <!-- Element aura effect -->
+    <div class="aura-effect"></div>
+    
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <div class="logo">PORTFOLIO</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Project</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="profile-image">
+                <div class="image-container">
+                    <img src="profil.jpg" alt="Profile Photo">
+                </div>
+            </div>
+            <div class="intro-text">
+                <h1 class="animate__animated animate__fadeInUp">Muhammad Fikri</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">Junior Web Developer</p>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">Student Of <a href="https://www.instagram.com/poliban_official/">Poliban</a></p>
+                <div class="cta-buttons animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#projects" class="btn primary-btn">Lihat Project</a>
+                    <a href="#contact" class="btn secondary-btn">Hubungi Saya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="text-left" style="text-align: justify;">
+                        Saya adalah seorang junior web developer yang saat ini sedang menempuh pendidikan D3 - Teknik Informatika di Poliban. Saya menguasai berbagai teknologi web modern dan selalu memperhatikan detail dalam setiap proyek yang saya kerjakan.
+                      </p>
+                      <p class="text-left" style="text-align: justify;">
+                        Pendekatan saya dalam pengembangan website adalah mengkombinasikan fungsionalitas yang baik dengan desain yang menarik dan user experience yang optimal. Saya percaya bahwa website yang baik harus tidak hanya indah dipandang, tetapi juga mudah digunakan.
+                    </p>
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <span class="info-label">Nama:</span>
+                            <span class="info-value">Muhammad Fikri</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">fikri772277@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Lokasi:</span>
+                            <span class="info-value">Banjarmasin, Indonesia</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Ketersediaan:</span>
+                            <span class="info-value">Freelance & Part Time</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn download-cv">Download CV</a>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">0</div>
+                        <div class="stat-text">Tahun Pengalaman</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-text">Project Selesai</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">0</div>
+                        <div class="stat-text">Klien Puas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">0</div>
+                        <div class="stat-text">Penghargaan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skills-slider">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-icon">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-icon">
+                        <i class="fab fa-php"></i>
+                        <span>PHP</span>
+                    </div>
+                    <div class="skill-icon">
+                        <i class="fab fa-c"></i>
+                        <span>C</span>
+                    </div>
+                    <div class="skill-icon">
+                        <i class="fas fa-coffee"></i>
+                        <span>Java</span>
+                    </div>                    
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>                    
+                    <div class="skill-icon">
+                        <i class="fab fa-laravel"></i>
+                        <span>Laravel</span>
+                    </div>
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="skill-icon">
+                        <i class="fab fa-react"></i>
+                        <span>Tailwind</span>
+                    </div>                                       
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Project</h2>
+            <div class="project-selector">
+                <div class="project-number active" data-project="1">1</div>
+                <div class="project-number" data-project="2">2</div>
+                <div class="project-number" data-project="3">3</div>
+                <div class="project-number" data-project="4">4</div>
+                <div class="project-number" data-project="5">5</div>
+            </div>
+            <div class="project-showcase">
+                <div class="project-item active" id="project-1">
+                    <div class="project-image">
+                        <img src="sima.jpg" alt="Project 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sistem Informasi Manajemen Arsip</h3>
+                        <p>Pengembangan website untuk mengelola arsip secara online menggunakan laravel</p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>PHP</span>
+                            <span>Taildwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MuhammadFikriiii" class="btn view-project">Lihat Project</a>
+                            <a href="https://github.com/MuhammadFikriiii/sistem-informasi-manajemen-arsip" class="btn view-code">Lihat Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" id="project-2">
+                    <div class="project-image">
+                        <img src="aman.png" alt="Project 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Website Penyusun Kurikulum berbasis OBE untuk Poliban</h3>
+                        <p>Website Penyusun Kurikulum berbasi OBE ada lah sebuah website yang dirancang untuk menyusun kurikulum dengan standar OBE (Outcome Based Education).</p>
+                        <div class="project-tech">
+                            <span>PHP</span>
+                            <span>JavaScript</span>
+                            <span>Tailwind</span>
+                            <span>MySQL</span>
+                            <span>Figma</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MuhammadFikriiii" class="btn view-project">Lihat Project</a>
+                            <a href="https://github.com/MuhammadFikriiii/Website-Penyusunan-Kurikulum-Berbasis-OBE-Tugas-Akhir" class="btn view-code">Lihat Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" id="project-3">
+                    <div class="project-image">
+                        <img src="/api/placeholder/600/400" alt="Project 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>Aplikasi Pembelajaran Online</h3>
+                        <p>Platform pembelajaran online dengan fitur manajemen kursus, sistem ujian, dan forum diskusi. Dibangun dengan Laravel dan Vue.js.</p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>Vue.js</span>
+                            <span>MySQL</span>
+                            <span>Redis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn view-project">Lihat Project</a>
+                            <a href="#" class="btn view-code">Lihat Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" id="project-4">
+                    <div class="project-image">
+                        <img src="/api/placeholder/600/400" alt="Project 4">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sistem Manajemen Hotel</h3>
+                        <p>Sistem manajemen hotel dengan fitur reservasi, manajemen kamar, dan integrasi pembayaran. Dibangun dengan PHP dan JavaScript.</p>
+                        <div class="project-tech">
+                            <span>PHP</span>
+                            <span>JavaScript</span>
+                            <span>MySQL</span>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn view-project">Lihat Project</a>
+                            <a href="#" class="btn view-code">Lihat Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" id="project-5">
+                    <div class="project-image">
+                        <img src="/api/placeholder/600/400" alt="Project 5">
+                    </div>
+                    <div class="project-info">
+                        <h3>Portfolio Website</h3>
+                        <p>Website portfolio interaktif dengan animasi modern dan UI/UX yang elegan. Dibuat dengan HTML, CSS, dan JavaScript.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>GSAP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn view-project">Lihat Project</a>
+                            <a href="#" class="btn view-code">Lihat Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>fikri772277@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Telepon</h3>
+                        <p>+62 852 4886 7449</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Lokasi</h3>
+                        <p>Banjarmasin, Indonesia</p>
+                    </div>
+                    <div>Click below to visit my social media.
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/muhammad-fikri-9075b2299" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/MuhammadFikriiii" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/mfikri.724" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="emailForm">
+                        <div class="form-group">
+                            <input type="text" name="name" id="nama" placeholder="Nama Lengkap Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder="Alamat Email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="pesan" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">Kirim Pesan</button>
+                    </form>                    
+                    
+                    <script type="text/javascript">
+                        // Inisialisasi EmailJS dengan Public Key Anda
+                        emailjs.init("MkDTippaiZtJd2cUV"); // Gunakan public key yang sesuai dengan akun Anda
+                    
+                        // Event listener untuk submit form
+                        const form = document.getElementById('emailForm');
+                    
+                        form.addEventListener('submit', function(event) {
+                            event.preventDefault();  // Mencegah form melakukan reload halaman
+                    
+                            // Kirim email menggunakan EmailJS dengan ID form dan template
+                            emailjs.sendForm('service_rw9xkqw', 'template_z37v5ih', this)
+                                .then(function(response) {
+                                    alert('Pesan berhasil dikirim!');
+                                    form.reset();  // Reset form setelah berhasil mengirim
+                                }, function(error) {
+                                    alert('Terjadi kesalahan: ' + error.text);
+                                });
+                        });
+                    </script>                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 My Portfolio. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
