@@ -168,8 +168,11 @@ nav .container {
 }
 
 .nav-links {
-    display: flex;
     list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 40%; /* Ini masalah di desktop */
+    transition: all 0.3s ease;
 }
 
 .nav-links li {
