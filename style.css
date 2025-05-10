@@ -726,6 +726,10 @@ footer p {
     
     .burger {
         display: block;
+        position: absolute;
+          top: 50%; 
+  left: 320px;               /* Jarak 20px dari kiri */
+  transform: translateY(-50%);
     }
     
     .burger.active .line1 {
