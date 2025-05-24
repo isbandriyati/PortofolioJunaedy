@@ -1,323 +1,1262 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Muhammad Fikri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'electric-blue': '#00BFFF',
+                        'cyan-glow': '#00FFFF',
+                        'purple-glow': '#8B5CF6',
+                        'pink-glow': '#EC4899',
+                        'green-glow': '#10B981',
+                        'orange-glow': '#F59E0B',
+                        'dark-bg': '#0F0F23',
+                        'dark-card': '#1A1A2E',
+                        'light-bg': '#F8FAFC',
+                        'light-card': '#FFFFFF',
+                    },
+                    boxShadow: {
+                        'neuro-dark': '8px 8px 16px #0a0a0a, -8px -8px 16px #1e1e1e',
+                        'neuro-light': '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff',
+                        'glow': '0 0 20px rgba(0, 191, 255, 0.5)',
+                        'glow-strong': '0 0 30px rgba(0, 255, 255, 0.8)',
+                        'glow-purple': '0 0 20px rgba(139, 92, 246, 0.6)',
+                        'glow-pink': '0 0 20px rgba(236, 72, 153, 0.6)',
+                        'glow-green': '0 0 20px rgba(16, 185, 129, 0.6)',
+                    },
+                    animation: {
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-in': 'slideIn 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        typing: {
+                            'from': { width: '0' },
+                            'to': { width: '100%' }
+                        },
+                        'blink-caret': {
+                            'from, to': { borderColor: 'transparent' },
+                            '50%': { borderColor: '#00BFFF' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' }
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        slideUp: {
+                            'from': { transform: 'translateY(100px)', opacity: '0' },
+                            'to': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideIn: {
+                            'from': { transform: 'translateX(-100px)', opacity: '0' },
+                            'to': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            'from': { transform: 'scale(0.8)', opacity: '0' },
+                            'to': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* Enhanced Custom Styles */
+        .glass {
+            background: rgba(26, 26, 46, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-light {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .skill-bar {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00BFFF, #8B5CF6, #EC4899);
+            border-radius: inherit;
+            transform: translateX(-100%);
+            transition: transform 2s ease-in-out;
+        }
+        
+        .skill-progress.animate {
+            transform: translateX(0);
+        }
+        
+        .tech-icon {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: grayscale(100%) brightness(0.8);
+        }
+        
+        .tech-icon:hover {
+            filter: grayscale(0%) brightness(1.2);
+            transform: translateY(-10px) scale(1.1);
+        }
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .floating-label {
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .form-input:focus + .floating-label,
+        .form-input:not(:placeholder-shown) + .floating-label {
+            transform: translateY(-25px) scale(0.8);
+            color: #00BFFF;
+        }
+        
+        .certificate-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px) rotateY(5deg);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .testimonial-content {
+            flex-grow: 1;
+        }
+        
+        .github-activity {
+            display: grid;
+            grid-template-columns: repeat(53, 1fr);
+            gap: 2px;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        
+        .activity-day {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+            min-width: 10px;
+        }
+        
+        .activity-day:hover {
+            transform: scale(1.5);
+        }
+        
+        .activity-0 { background-color: #161b22; }
+        .activity-1 { background-color: #0e4429; }
+        .activity-2 { background-color: #006d32; }
+        .activity-3 { background-color: #26a641; }
+        .activity-4 { background-color: #39d353; }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .modal-content {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: scaleIn 0.3s ease-out;
+        }
+        
+        .star-rating {
+            display: flex;
+            gap: 4px;
+            margin: 8px 0;
+        }
+        
+        .star {
+            font-size: 20px;
+            color: #374151;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .star:hover,
+        .star.active {
+            color: #fbbf24;
+        }
+        
+        /* Responsive Grid Fixes */
+        @media (max-width: 768px) {
+            .github-activity {
+                grid-template-columns: repeat(26, 1fr);
+            }
+            
+            .activity-day {
+                width: 8px;
+                height: 8px;
+                min-width: 8px;
+            }
+        }
+        
+        /* Better spacing for cards */
+        .card-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .card-grid.cols-1 {
+            grid-template-columns: 1fr;
+        }
+        
+        .card-grid.cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .card-grid.cols-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        .card-grid.cols-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        @media (max-width: 640px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body>
-    <div id="cursor-fx"></div>
-
-    
-    <!-- Element aura effect -->
-    <div class="aura-effect"></div>
-    
-    <!-- Navbar -->
-    <nav>
-        <div class="container">
-            <div class="logo">PORTFOLIO</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Project</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+<body class="bg-light-bg dark:bg-dark-bg text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+    <!-- Enhanced Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass dark:glass transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Enhanced Logo -->
+                <a href="#" class="text-xl sm:text-2xl font-bold text-electric-blue">
+                    <span class="gradient-bg bg-clip-text text-transparent">Muhammad </span><span class="text-electric-blue">Fikri</span>
+                </a>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8">
+                    <a href="#home" class="nav-link active py-2 text-sm lg:text-base text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Home</a>
+                    <a href="#about" class="nav-link py-2 text-sm lg:text-base text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">About</a>
+                    <a href="#projects" class="nav-link py-2 text-sm lg:text-base text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Projects</a>
+                    <a href="#skills" class="nav-link py-2 text-sm lg:text-base text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Skills</a>
+                    <a href="#certificates" class="nav-link py-2 text-sm lg:text-base text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Certificates</a>
+                    <a href="#testimonials" class="nav-link py-2 text-sm lg:text-base text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Testimonials</a>
+                    <a href="#contact" class="nav-link py-2 text-sm lg:text-base text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Enhanced Theme Toggle -->
+                <button id="theme-toggle" class="p-2 sm:p-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 dark:from-blue-500 dark:to-purple-600 hover:shadow-glow transition-all duration-300 transform hover:scale-110">
+                    <i class="fas fa-sun text-white dark:hidden text-sm sm:text-base"></i>
+                    <i class="fas fa-moon text-white hidden dark:block text-sm sm:text-base"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none ml-2">
+                    <i class="fas fa-bars text-xl sm:text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 space-y-2">
+                <a href="#home" class="block py-2 text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Home</a>
+                <a href="#about" class="block py-2 text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">About</a>
+                <a href="#projects" class="block py-2 text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Projects</a>
+                <a href="#skills" class="block py-2 text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Skills</a>
+                <a href="#certificates" class="block py-2 text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Certificates</a>
+                <a href="#testimonials" class="block py-2 text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Testimonials</a>
+                <a href="#contact" class="block py-2 text-gray-800 dark:text-gray-200 hover:text-electric-blue dark:hover:text-electric-blue transition-colors">Contact</a>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="container">
-            <div class="profile-image">
-                <div class="image-container">
-                    <img src="profil.jpg" alt="Profile Photo">
-                </div>
+    <!-- Enhanced Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 gradient-bg opacity-20"></div>
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-electric-blue rounded-full filter blur-3xl opacity-30 animate-float"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-40 h-40 bg-purple-glow rounded-full filter blur-3xl opacity-20 animate-float" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-pink-glow rounded-full filter blur-3xl opacity-25 animate-float" style="animation-delay: 2s;"></div>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 z-10 text-center">
+            <p class="text-lg sm:text-xl md:text-2xl font-light mb-4 text-gray-400 animate-slide-in">Hello, I'm</p>
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 text-white animate-scale-in">
+                <span class="typing-container">
+                    <span class="typing-text gradient-bg bg-clip-text text-transparent" id="dev-name">Muhammad Fikri</span>
+                </span>
+            </h1>
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-light mb-8 text-electric-blue animate-slide-up">
+                <span class="typing-container" style="animation-delay: 3.5s;">
+                    <span class="typing-text" id="dev-title"></span>
+                </span>
+            </h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 animate-slide-up">
+                <a href="#projects" class="px-6 sm:px-8 py-3 rounded-full bg-gradient-to-r from-electric-blue to-purple-glow text-white font-medium hover:shadow-glow-strong transform hover:scale-105 transition-all duration-300">View My Work</a>
+                <a href="#contact" class="px-6 sm:px-8 py-3 rounded-full bg-transparent border-2 border-electric-blue text-electric-blue font-medium hover:bg-electric-blue hover:text-white hover:shadow-glow transform hover:scale-105 transition-all duration-300">Contact Me</a>
             </div>
-            <div class="intro-text">
-                <h1 class="animate__animated animate__fadeInUp">Muhammad Fikri</h1>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">Junior Web Developer</p>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">Student Of <a href="https://www.instagram.com/poliban_official/">Poliban.</a></p>
-                <div class="cta-buttons animate__animated animate__fadeInUp animate__delay-2s">
-                    <a href="#projects" class="btn primary-btn">Lihat Project</a>
-                    <a href="#contact" class="btn secondary-btn">Hubungi Saya</a>
-                </div>
-            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <a href="#about" class="text-white opacity-70 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="text-left" style="text-align: justify;">
-                        Saya adalah seorang junior web developer yang saat ini sedang menempuh pendidikan D3 - Teknik Informatika di Poliban. Saya menguasai berbagai teknologi web modern dan selalu memperhatikan detail dalam setiap proyek yang saya kerjakan.
-                      </p>
-                      <p class="text-left" style="text-align: justify;">
-                        Pendekatan saya dalam pengembangan website adalah mengkombinasikan fungsionalitas yang baik dengan desain yang menarik dan user experience yang optimal. Saya percaya bahwa website yang baik harus tidak hanya indah dipandang, tetapi juga mudah digunakan.
+    <!-- Enhanced About Section -->
+    <section id="about" class="py-16 sm:py-20 md:py-32">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-16 text-center relative -left-8">
+                <span class="relative gradient-bg bg-clip-text text-transparent">
+                    About Me
+                </span>
+            </h2>
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+                <div class="lg:w-2/5 flex justify-center">
+                    <div class="relative animate-float -mt-10">
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-neuro-dark dark:shadow-neuro-dark border-4 border-gradient-to-r from-electric-blue via-purple-glow to-pink-glow">
+                            <img src="pp.png" alt="Profile Photo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 rounded-full border-4 border-cyan-glow opacity-50 animate-pulse-slow"></div>
+                        <div class="absolute -top-4 -right-4 w-8 h-8 bg-green-glow rounded-full animate-pulse sparkle"></div>
+                        <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-pink-glow rounded-full animate-pulse sparkle" style="animation-delay: 1s;"></div>
+                    </div>
+                </div>
+                <div class="lg:w-3/5">
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4">I'm <span class="gradient-bg bg-clip-text text-transparent">Muhammad Fikri</span>, a Web Developer</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
+                        I specialize in building exceptional digital experiences that live on the internet. With a focus on creating elegant, efficient, and user-friendly applications, I bring ideas to life with code.
                     </p>
-                    <div class="personal-info">
-                        <div class="info-item">
-                            <span class="info-label">Nama:</span>
-                            <span class="info-value">Muhammad Fikri</span>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-sm sm:text-base">
+                    As a recent graduate in web development, I’ve worked on various projects during my studies and through freelance work—ranging from simple websites to applications with complex features. I enjoy combining technical skills with creative problem-solving to deliver effective and engaging solutions.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center p-3 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20">
+                            <i class="fas fa-map-marker-alt text-electric-blue mr-3 text-lg"></i>
+                            <span class="text-sm sm:text-base">Banjarmasin, Indonesia</span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Email:</span>
-                            <span class="info-value">fikri772277@gmail.com</span>
+                        <div class="flex items-center p-3 rounded-lg bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20">
+                            <i class="fas fa-envelope text-green-glow mr-3 text-lg"></i>
+                            <span class="text-sm sm:text-base">tpublicml@gmail.com</span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Lokasi:</span>
-                            <span class="info-value">Banjarmasin, Indonesia</span>
+                        <div class="flex items-center p-3 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                            <i class="fas fa-phone text-purple-glow mr-3 text-lg"></i>
+                            <span class="text-sm sm:text-base">+62 852 4886 7449</span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Ketersediaan:</span>
-                            <span class="info-value">Freelance & Part Time</span>
+                        <div class="flex items-center p-3 rounded-lg bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20">
+                            <i class="fas fa-graduation-cap text-orange-glow mr-3 text-lg"></i>
+                            <span class="text-sm sm:text-base">Informatic Engginering, Politeknik Negeri Banjarmasin</span>
                         </div>
                     </div>
-                    <a href="#" class="btn download-cv">Download CV</a>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">0</div>
-                        <div class="stat-text">Tahun Pengalaman</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-text">Project Selesai</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">0</div>
-                        <div class="stat-text">Klien Puas</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">0</div>
-                        <div class="stat-text">Penghargaan</div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#" class="px-6 py-3 rounded-full bg-gradient-to-r from-electric-blue to-purple-glow text-white font-medium hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center">
+                            <i class="fas fa-download mr-2"></i> Download CV
+                        </a>
+                        <a href="#contact" class="px-6 py-3 rounded-full bg-transparent border-2 border-electric-blue text-electric-blue font-medium hover:bg-electric-blue hover:text-white hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Hire Me
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-container">
-                <div class="skills-slider">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
+    <!-- Enhanced Projects Section -->
+    <section id="projects" class="py-16 sm:py-20 md:py-32 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-16 text-center">
+                <span class="relative gradient-bg bg-clip-text text-transparent">
+                    My Projects
+                </span>
+            </h2>
+            <div class="card-grid cols-3">
+                <!-- Enhanced Project Cards with better spacing -->
+                <div class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-electric-blue/20">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="project.png" alt="Sistem Informasi Penyusunan Kurikulum Poliban Berbasis OBE" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"></div>
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white text-xs font-bold">
+                            New
+                        </div>
                     </div>
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Sistem Informasi Penyusunan Kurikulum Poliban Berbasis OBE</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm text-justify">This Outcome-Based Education (OBE)-based Curriculum Design Information System was specifically developed for Poliban to support the curriculum development process in line with OBE principles. It facilitates structured mapping of learning outcomes (CPL), courses, and assessments, helping to enhance alignment, efficiency, and transparency in curriculum planning at Poliban.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-medium">html</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium">tailwind CSS</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-medium">JavaScript</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-orange-800 to-orange-600 text-white font-medium">MySql</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-medium">PHP</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-red-600 to-red-800 text-white font-medium">Laravel</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-400 to-purple-500 text-white font-medium">Figma</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="flex-1 px-4 py-2 rounded-full bg-gradient-to-r from-electric-blue to-cyan-glow text-white text-sm font-medium hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center">
+                                <i class="fas fa-eye mr-1"></i> Demo
+                            </a>
+                            <a href="https://github.com/MuhammadFikriiii/baru_kurikulum_OBE" class="flex-1 px-4 py-2 rounded-full bg-transparent border border-electric-blue text-electric-blue text-sm font-medium hover:bg-electric-blue hover:text-white hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
                     </div>
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="fab fa-php"></i>
-                        <span>PHP</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="fab fa-c"></i>
-                        <span>C</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="fas fa-coffee"></i>
-                        <span>Java</span>
-                    </div>                    
-                    <div class="skill-icon">
-                        <i class="fab fa-python"></i>
-                        <span>Python</span>
-                    </div>                    
-                    <div class="skill-icon">
-                        <i class="fab fa-laravel"></i>
-                        <span>Laravel</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                        <span>MySQL</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="fab fa-react"></i>
-                        <span>Tailwind</span>
-                    </div>                                       
                 </div>
+                
+                <!-- Additional enhanced project cards... -->
+                <div class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-purple-glow/20">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="project1.png" alt="Large-Scale LAN Design Using Cisco Packet Tracer " class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"></div>
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white text-xs font-bold">
+                            Network
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Large-Scale LAN Design Using Cisco Packet Tracer </h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm text-justify">This project models a large-scale LAN design using Cisco Packet Tracer, aimed at optimizing connectivity, scalability, and network management in a corporate environment. The design includes configuration of switches, routers, VLANs, and routing protocols to ensure efficient network performance and security.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium">Cisco</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-red-400 to-red-600 text-white font-medium">VLAN</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-teal-400 to-teal-600 text-white font-medium">Subnetting</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-indigo-400 to-indigo-600 text-white font-medium">Simulation</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="flex-1 px-4 py-2 rounded-full bg-gradient-to-r from-purple-glow to-pink-glow text-white text-sm font-medium hover:shadow-glow-purple transform hover:scale-105 transition-all duration-300 text-center">
+                                <i class="fas fa-eye mr-1"></i> Demo
+                            </a>
+                            <a href="https://drive.google.com/drive/u/0/folders/12u0mo5TJ_B59r6mcU_ZM1LNpqIP7H-yz" class="flex-1 px-4 py-2 rounded-full bg-transparent border border-purple-glow text-purple-glow text-sm font-medium hover:bg-purple-glow hover:text-white hover:shadow-glow-purple transform hover:scale-105 transition-all duration-300 text-center">
+                                <i class="fab fa-google-drive mr-1"></i> File
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue with more enhanced project cards... -->
+                <div class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-pink-glow/20">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="sima.jpg" alt="AI Chat Assistant" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"></div>
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-pink-400 to-rose-500 text-white text-xs font-bold">
+                            Website
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Sistem Informasi Management Arsip On BPKPAD Kota Banjarmasin</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm text-justify">This Sistem Informasi Manajemen Arsip is developed to optimize electronic archive management at BPKPAD, Banjarmasin City. It improves efficiency in document storage, retrieval, and security by offering features such as record keeping, classification, and controlled access, supporting modern and structured archival governance.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-medium">html</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium">tailwind CSS</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-medium">JavaScript</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-orange-800 to-orange-600 text-white font-medium">MySql</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-medium">PHP</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-red-600 to-red-800 text-white font-medium">Laravel</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-400 to-purple-500 text-white font-medium">Figma</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="flex-1 px-4 py-2 rounded-full bg-gradient-to-r from-pink-glow to-rose-500 text-white text-sm font-medium hover:shadow-glow-pink transform hover:scale-105 transition-all duration-300 text-center">
+                                <i class="fas fa-eye mr-1"></i> Demo
+                            </a>
+                            <a href="https://github.com/MuhammadFikriiii/sistem-informasi-manajemen-arsip" class="flex-1 px-4 py-2 rounded-full bg-transparent border border-pink-glow text-pink-glow text-sm font-medium hover:bg-pink-glow hover:text-white hover:shadow-glow-pink transform hover:scale-105 transition-all duration-300 text-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="px-8 py-3 rounded-full bg-gradient-to-r from-electric-blue via-purple-glow to-pink-glow text-white font-medium hover:shadow-glow-strong transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-project-diagram mr-2"></i> View All Projects
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Project</h2>
-            <div class="project-selector">
-                <div class="project-number active" data-project="1">1</div>
-                <div class="project-number" data-project="2">2</div>
-                <div class="project-number" data-project="3">3</div>
-                <div class="project-number" data-project="4">4</div>
-                <div class="project-number" data-project="5">5</div>
-            </div>
-            <div class="project-showcase">
-                <div class="project-item active" id="project-1">
-                    <div class="project-image">
-                        <img src="sima.jpg" alt="Project 1">
-                    </div>
-                    <div class="project-info">
-                        <h3>Sistem Informasi Manajemen Arsip</h3>
-                        <p>Pengembangan website untuk mengelola arsip secara online menggunakan laravel</p>
-                        <div class="project-tech">
-                            <span>Laravel</span>
-                            <span>MySQL</span>
-                            <span>PHP</span>
-                            <span>Taildwind</span>
+    <!-- Enhanced Skills Section with Better Layout -->
+    <section id="skills" class="py-16 sm:py-20 md:py-32">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-16 text-center">
+                <span class="relative gradient-bg bg-clip-text text-transparent">
+                    My Skills
+                </span>
+            </h2>
+            
+            <!-- Animated Technical Skills with Better Grid -->
+            <div class="mb-16">
+                <h3 class="text-xl sm:text-2xl font-bold mb-8 text-center gradient-bg bg-clip-text text-transparent">Technical Skills</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8 justify-items-center">
+                    <!-- HTML -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="html">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-orange-400 to-red-500 mb-3 relative overflow-hidden">
+                            <i class="fab fa-html5 text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/MuhammadFikriiii" class="btn view-project">Lihat Project</a>
-                            <a href="https://github.com/MuhammadFikriiii/sistem-informasi-manajemen-arsip" class="btn view-code">Lihat Code</a>
+                        <span class="text-xs sm:text-sm font-medium text-center">HTML5</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
                         </div>
                     </div>
-                </div>
-                <div class="project-item" id="project-2">
-                    <div class="project-image">
-                        <img src="aman.png" alt="Project 2">
-                    </div>
-                    <div class="project-info">
-                        <h3>Website Penyusun Kurikulum berbasis OBE untuk Poliban</h3>
-                        <p>Website Penyusun Kurikulum berbasi OBE ada lah sebuah website yang dirancang untuk menyusun kurikulum dengan standar OBE (Outcome Based Education).</p>
-                        <div class="project-tech">
-                            <span>PHP</span>
-                            <span>JavaScript</span>
-                            <span>Tailwind</span>
-                            <span>MySQL</span>
-                            <span>Figma</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/MuhammadFikriiii" class="btn view-project">Lihat Project</a>
-                            <a href="https://github.com/MuhammadFikriiii/Website-Penyusunan-Kurikulum-Berbasis-OBE-Tugas-Akhir" class="btn view-code">Lihat Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item" id="project-3">
-                    <div class="project-image">
-                        <img src="/api/placeholder/600/400" alt="Project 3">
-                    </div>
-                    <div class="project-info">
-                        <h3>Soon</h3>
-                        <p>Platform pembelajaran online dengan fitur manajemen kursus, sistem ujian, dan forum diskusi. Dibangun dengan Laravel dan Vue.js.</p>
-                        <div class="project-tech">
-                            <span>Laravel</span>
-                            <span>Vue.js</span>
-                            <span>MySQL</span>
-                            <span>Redis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn view-project">Lihat Project</a>
-                            <a href="#" class="btn view-code">Lihat Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item" id="project-4">
-                    <div class="project-image">
-                        <img src="/api/placeholder/600/400" alt="Project 4">
-                    </div>
-                    <div class="project-info">
-                        <h3>Sistem Manajemen Hotel</h3>
-                        <p>Sistem manajemen hotel dengan fitur reservasi, manajemen kamar, dan integrasi pembayaran. Dibangun dengan PHP dan JavaScript.</p>
-                        <div class="project-tech">
-                            <span>PHP</span>
-                            <span>JavaScript</span>
-                            <span>MySQL</span>
-                            <span>Bootstrap</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn view-project">Lihat Project</a>
-                            <a href="#" class="btn view-code">Lihat Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item" id="project-5">
-                    <div class="project-image">
-                        <img src="/api/placeholder/600/400" alt="Project 5">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio Website</h3>
-                        <p>Website portfolio interaktif dengan animasi modern dan UI/UX yang elegan. Dibuat dengan HTML, CSS, dan JavaScript.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>GSAP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn view-project">Lihat Project</a>
-                            <a href="#" class="btn view-code">Lihat Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Hubungi Saya</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>fikri772277@gmail.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Telepon</h3>
-                        <p>+62 852 4886 7449</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Lokasi</h3>
-                        <p>Banjarmasin, Indonesia</p>
-                    </div>
-                    <div>Click below to visit my social media.
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/muhammad-fikri-9075b2299" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/MuhammadFikriiii" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/mfikri.724" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="emailForm">
-                        <div class="form-group">
-                            <input type="text" name="name" id="nama" placeholder="Nama Lengkap Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" placeholder="Alamat Email Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" id="pesan" placeholder="Tulis pesan Anda di sini..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-full">Kirim Pesan</button>
-                    </form>                    
                     
-                    <script type="text/javascript">
-                        // Inisialisasi EmailJS dengan Public Key Anda
+                    <!-- CSS -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="css">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-400 to-blue-600 mb-3 relative overflow-hidden">
+                            <i class="fab fa-css3-alt text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">Tailwind CSS</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- JavaScript -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="js">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-yellow-400 to-yellow-600 mb-3 relative overflow-hidden">
+                            <i class="fab fa-js text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">JavaScript</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- cisco -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="react">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-cyan-400 to-blue-500 mb-3 relative overflow-hidden">
+                            <i class="fas fa-network-wired text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">Cisco</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- MySql -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="node">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-green-500 to-green-700 mb-3 relative overflow-hidden">
+                            <i class="fas fa-database text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">MySql</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- PHP -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="python">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-500 to-yellow-500 mb-3 relative overflow-hidden">
+                            <i class="fab fa-php text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">PHP</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                     <!-- Laravel -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="python">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-500 to-pink-500 mb-3 relative overflow-hidden">
+                            <i class="fab fa-laravel text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">Laravel</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Figma -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="python">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-red-500 to-yellow-500 mb-3 relative overflow-hidden">
+                            <i class="fab fa-figma text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">Figma</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-800 dark:bg-gray-900 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Excel -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="python">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-green-500 to-green-900 mb-3 relative overflow-hidden">
+                            <i class="fas fa-file-excel text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">Excel</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-800 dark:bg-gray-900 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Word -->
+                    <div class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]" data-skill="python">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-500 to-blue-900 mb-3 relative overflow-hidden">
+                            <i class="fas fa-file-word text-2xl sm:text-4xl text-white animate-spin-slow"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium text-center">Word</span>
+                        <div class="w-12 sm:w-16 h-2 bg-gray-800 dark:bg-gray-900 rounded-full mt-2 skill-bar">
+                            <div class="skill-progress h-full rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enhanced GitHub Stats with Better Layout -->
+            <div class="mt-20">
+                <h3 class="text-xl sm:text-2xl font-bold mb-8 text-center gradient-bg bg-clip-text text-transparent">GitHub Statistics</h3>
+                
+                <!-- GitHub Activity Heatmap with Better Responsive Design -->
+                <div class="mb-12 p-4 sm:p-6 rounded-xl shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass">
+                    <h4 class="text-base sm:text-lg font-medium mb-4 text-center">Contribution Activity</h4>
+                    <div class="github-activity mx-auto" id="github-activity">
+                        <!-- Activity squares will be generated by JavaScript -->
+                    </div>
+                    <div class="flex justify-between items-center mt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                        <span>Less</span>
+                        <div class="flex space-x-1">
+                            <div class="w-3 h-3 rounded-sm activity-0"></div>
+                            <div class="w-3 h-3 rounded-sm activity-1"></div>
+                            <div class="w-3 h-3 rounded-sm activity-2"></div>
+                            <div class="w-3 h-3 rounded-sm activity-3"></div>
+                            <div class="w-3 h-3 rounded-sm activity-4"></div>
+                        </div>
+                        <span>More</span>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Stats Cards with Better Grid -->
+                <div class="card-grid cols-4">
+                    <div class="rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 glass dark:glass">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm sm:text-lg font-medium">Repositories</h4>
+                            <i class="fas fa-code-branch text-electric-blue text-xl sm:text-2xl animate-pulse"></i>
+                        </div>
+                        <p class="text-2xl sm:text-4xl font-bold text-electric-blue count-up" data-target="10">0</p>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2">Public repositories</p>
+                        <div class="mt-3 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 glass dark:glass">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm sm:text-lg font-medium">Stars</h4>
+                            <i class="fas fa-star text-yellow-500 text-xl sm:text-2xl animate-pulse"></i>
+                        </div>
+                        <p class="text-2xl sm:text-4xl font-bold text-yellow-500 count-up" data-target="3">0</p>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2">Received on projects</p>
+                        <div class="mt-3 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 glass dark:glass">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm sm:text-lg font-medium">Contributions</h4>
+                            <i class="fas fa-code-commit text-green-glow text-xl sm:text-2xl animate-pulse"></i>
+                        </div>
+                        <p class="text-2xl sm:text-4xl font-bold text-green-glow count-up" data-target="10">0</p>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2">Last year</p>
+                        <div class="mt-3 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 glass dark:glass">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm sm:text-lg font-medium">Followers</h4>
+                            <i class="fas fa-users text-purple-glow text-xl sm:text-2xl animate-pulse"></i>
+                        </div>
+                        <p class="text-2xl sm:text-4xl font-bold text-purple-glow count-up" data-target="10">0</p>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2">GitHub followers</p>
+                        <div class="mt-3 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Certificates Section with Better Grid -->
+    <section id="certificates" class="py-16 sm:py-20 md:py-32 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-16 text-center">
+                <span class="relative gradient-bg bg-clip-text text-transparent">
+                    Certificates & Achievements
+                </span>
+            </h2>
+            
+            <div class="card-grid cols-3">
+                <!-- Certificate 1 -->
+                <div class="certificate-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-electric-blue/20">
+                <div class="relative h-40 sm:h-48">
+                    <img src="lintasarta.jpg" alt="Certificate Lintasarta" class="w-full h-full object-cover" />
+                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-blue-300 text-white text-xs font-bold">
+                        2022
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Certificate Of Competency Assessment</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-3 text-sm">Lintasarta</p>
+                    <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mb-4">MikroTik router configuration, network setup, routing protocols, firewall management, and bandwidth optimization.</p>
+                </div>
+            </div>
+                
+                <!-- Certificate 2 -->
+                <div class="certificate-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-green-glow/20">
+                    <div class="relative h-40 sm:h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                        <img src="upayateknik.jpg" alt="Certificate upayateknik" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-red-300 text-white text-xs font-bold">
+                            2021
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Practical Training in Fiber Optic Network Technology</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3 text-sm">Upaya Teknik (PT. Telkom Indonesia)</p>
+                        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mb-4">Completed internship training on Fiber Optic Network at Upaya Teknik, part of PT Telkom Indonesia. Gained practical skills in installation, configuration, and maintenance of fiber optic telecom networks.</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-green-glow/20">
+                    <div class="relative h-40 sm:h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                        <img src="office.jpg" alt="Certificate office" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-purple-300 text-white text-xs font-bold">
+                            2019
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Microsoft Office Productivity Training</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3 text-sm">LPKBB IPTEK</p>
+                        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mb-4">Completed professional training in Microsoft Office applications at LPPKB IPTEK, focusing on enhancing productivity using Word, Excel, and PowerPoint for various administrative and business tasks.</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-green-glow/20">
+                    <div class="relative h-40 sm:h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                        <img src="design.jpg" alt="Certificate design.jpg" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-300 text-white text-xs font-bold">
+                            2019
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Graphic Design Training Program</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3 text-sm">LPKBB IPTEK</p>
+                        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mb-4">Completed graphic design training at LPPKB IPTEK, focusing on the fundamentals of visual design, typography, color theory, and digital illustration using tools like Adobe Photoshop and CorelDRAW.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Testimonials Section with Add Feature -->
+    <section id="testimonials" class="py-16 sm:py-20 md:py-32">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-0">
+                    <span class="relative gradient-bg bg-clip-text text-transparent">
+                        What Clients Say
+                        <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-electric-blue via-purple-glow to-pink-glow transform -translate-y-2"></span>
+                    </span>
+                </h2>
+                <button id="add-testimonial-btn" class="px-6 py-3 rounded-full bg-gradient-to-r from-electric-blue to-purple-glow text-white font-medium hover:shadow-glow-strong transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-plus mr-2"></i> Add / This feature will be available soon.
+                </button>
+            </div>
+            
+            <div id="testimonials-grid" class="card-grid cols-3">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-electric-blue/20">
+                    <div class="testimonial-content">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                            "Fikri delivered an exceptional e-commerce platform that exceeded our expectations. His attention to detail and technical expertise made the entire process smooth and efficient."
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sarah Fikrison" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Sarah Johnson</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">CEO, TechStart Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-purple-glow/20">
+                    <div class="testimonial-content">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                            "Working with Fikri was a game-changer for our project. His full-stack expertise and problem-solving skills helped us launch our app ahead of schedule."
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Michael Chen" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Michael Chen</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">CTO, InnovateLab</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-green-glow/20">
+                    <div class="testimonial-content">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                            "Fikri's expertise in React and Node.js helped us build a scalable solution that handles thousands of users. Highly recommended for any web development project."
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Emily Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Emily Rodriguez</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Product Manager, DataFlow</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-pink-glow/20">
+                    <div class="testimonial-content">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                            "The AI chatbot Fikri developed for us has revolutionized our customer service. His understanding of both frontend and backend technologies is impressive."
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="David Kim" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">David Kim</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Founder, AI Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-orange-glow/20">
+                    <div class="testimonial-content">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                            "Fikri's work on our financial dashboard was outstanding. The data visualization and real-time updates work flawlessly. Professional and reliable developer."
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Lisa Thompson" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Lisa Thompson</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Director, FinTech Pro</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-cyan-glow/20">
+                    <div class="testimonial-content">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                            "The mobile app Fikri created for our fitness platform is intuitive and performs excellently. His React Native skills are top-notch. Will definitely work with him again."
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Alex Martinez" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Alex Martinez</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">CEO, FitLife App</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Stats -->
+            <div class="mt-16 card-grid cols-4">
+                <div class="text-center p-4 sm:p-6 rounded-xl shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass">
+                    <div class="text-2xl sm:text-3xl font-bold text-electric-blue mb-2 count-up" data-target="50">0</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Happy Clients</div>
+                </div>
+                <div class="text-center p-4 sm:p-6 rounded-xl shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass">
+                    <div class="text-2xl sm:text-3xl font-bold text-green-glow mb-2 count-up" data-target="98">0</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Success Rate %</div>
+                </div>
+                <div class="text-center p-4 sm:p-6 rounded-xl shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass">
+                    <div class="text-2xl sm:text-3xl font-bold text-purple-glow mb-2 count-up" data-target="75">0</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+                </div>
+                <div class="text-center p-4 sm:p-6 rounded-xl shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass">
+                    <div class="text-2xl sm:text-3xl font-bold text-orange-glow mb-2">4.9</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section id="contact" class="py-16 sm:py-20 md:py-32 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-16 text-center">
+                <span class="relative gradient-bg bg-clip-text text-transparent">
+                    Get In Touch
+                </span>
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-6 gradient-bg bg-clip-text text-transparent">Contact Information</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-sm sm:text-base">
+                        Feel free to reach out to me for any inquiries, project collaborations, or just to say hello. I'm always open to discussing new projects and opportunities.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start p-4 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-electric-blue to-purple-glow flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base sm:text-lg font-medium mb-1">Location</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Banjarmasin, Indonesia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 rounded-lg bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-glow to-emerald-500 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base sm:text-lg font-medium mb-1">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">tpublicml@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-glow to-pink-glow flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base sm:text-lg font-medium mb-1">Phone</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">+62 852 4886 7449</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 rounded-lg bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-orange-glow to-red-500 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-globe text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base sm:text-lg font-medium mb-1">Website</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">https://muhammadfikriiii.github.io/</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-base sm:text-lg font-medium mb-4 gradient-bg bg-clip-text text-transparent">Connect with me</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://github.com/MuhammadFikriiii" class="w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 flex items-center justify-center text-white hover:from-electric-blue hover:to-purple-glow hover:shadow-glow transform hover:scale-110 transition-all duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/muhammad-fikri-9075b2299" class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white hover:from-electric-blue hover:to-purple-glow hover:shadow-glow transform hover:scale-110 transition-all duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/mfikri.724" class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white hover:from-electric-blue hover:to-purple-glow hover:shadow-glow transform hover:scale-110 transition-all duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+  <h3 class="text-xl sm:text-2xl font-bold mb-6 gradient-bg bg-clip-text text-transparent">Send Me a Message</h3>
+  <form id="emailForm" class="space-y-6">
+    <div class="relative">
+      <input type="text" id="name" name="name" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" " required>
+      <label for="name" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Your Name</label>
+    </div>
+
+    <div class="relative">
+      <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" " required>
+      <label for="email" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Your Email</label>
+    </div>
+
+    <div class="relative">
+      <input type="text" id="subject" name="subject" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" " required>
+      <label for="subject" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Subject</label>
+    </div>
+
+    <div class="relative">
+      <textarea id="message" name="message" rows="5" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" " required></textarea>
+      <label for="message" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Your Message</label>
+    </div>
+
+    <button type="submit" class="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-electric-blue via-purple-glow to-pink-glow text-white font-medium hover:shadow-glow-strong transform hover:scale-105 transition-all duration-300">
+      <i class="fas fa-paper-plane mr-2"></i> Send Message
+    </button>
+  </form>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="py-8 bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl sm:text-2xl font-bold">
+                        <span class="gradient-bg bg-clip-text text-transparent"></span><span class="text-electric-blue">Muhammad Fikri</span>
+                    </a>
+                </div>
+                
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="https://github.com/MuhammadFikriiii" class="text-gray-400 hover:text-electric-blue transform hover:scale-110 transition-all duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammad-fikri-9075b2299" class="text-gray-400 hover:text-electric-blue transform hover:scale-110 transition-all duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mfikri.724" class="text-gray-400 hover:text-electric-blue transform hover:scale-110 transition-all duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-gray-400 text-sm">
+                    &copy; <span id="current-year">2025</span> Muhammad Fikri. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-electric-blue to-purple-glow text-white flex items-center justify-center shadow-glow opacity-0 invisible transition-all duration-300 hover:shadow-glow-strong transform hover:scale-110">
+        <i class="fas fa-arrow-up text-sm sm:text-lg"></i>
+    </button>
+
+    <!-- Add Testimonial Modal -->
+    <div id="testimonial-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl sm:text-2xl font-bold gradient-bg bg-clip-text text-transparent">Add New Testimonial</h3>
+                <button id="close-modal" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="testimonial-form" class="space-y-6">
+                <div class="relative">
+                    <input type="text" id="client-name" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" " required>
+                    <label for="client-name" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Client Name</label>
+                </div>
+                
+                <div class="relative">
+                    <input type="text" id="client-position" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" " required>
+                    <label for="client-position" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Position & Company</label>
+                </div>
+                
+                <div class="relative">
+                    <input type="url" id="client-avatar" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" ">
+                    <label for="client-avatar" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Avatar URL (optional)</label>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Rating</label>
+                    <div class="star-rating" id="star-rating">
+                        <i class="star fas fa-star" data-rating="1"></i>
+                        <i class="star fas fa-star" data-rating="2"></i>
+                        <i class="star fas fa-star" data-rating="3"></i>
+                        <i class="star fas fa-star" data-rating="4"></i>
+                        <i class="star fas fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <textarea id="testimonial-text" rows="4" class="form-input w-full px-4 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-electric-blue focus:outline-none focus:shadow-glow transition-all duration-300 text-gray-800 dark:text-gray-200" placeholder=" " required></textarea>
+                    <label for="testimonial-text" class="floating-label absolute left-4 top-3 text-gray-500 dark:text-gray-400">Testimonial Text</label>
+                </div>
+                
+                <div class="flex gap-4">
+                    <button type="button" id="cancel-testimonial" class="flex-1 px-6 py-3 rounded-lg bg-transparent border-2 border-gray-500 text-gray-500 font-medium hover:bg-gray-500 hover:text-white transition-all duration-300">
+                        Cancel
+                    </button>
+                    <button type="submit" class="flex-1 px-6 py-3 rounded-lg bg-gradient-to-r from-electric-blue to-purple-glow text-white font-medium hover:shadow-glow-strong transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-plus mr-2"></i> Add Testimonial
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+
+                // Inisialisasi EmailJS dengan Public Key Anda
                         emailjs.init("MkDTippaiZtJd2cUV"); // Gunakan public key yang sesuai dengan akun Anda
                     
                         // Event listener untuk submit form
@@ -335,28 +1274,419 @@
                                     alert('Terjadi kesalahan: ' + error.text);
                                 });
                         });
-                    </script>                    
-                </div>
-            </div>
-        </div>
-    </section>
+        
+        // Enhanced Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            
+            // Add animation effect
+            themeToggle.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1)';
+            }, 150);
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'light') {
+            html.classList.remove('dark');
+        }
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Enhanced Active Navigation Link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Enhanced Typing Effect
+        function typeEffect(element, text, speed = 100, delay = 0) {
+            setTimeout(() => {
+                element.textContent = '';
+                let i = 0;
+                const timer = setInterval(() => {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(timer);
+                    }
+                }, speed);
+            }, delay);
+        }
+        
+        const devName = document.getElementById('dev-name');
+        const devTitle = document.getElementById('dev-title');
+        
+        typeEffect(devName, 'Muhammad Fikri', 150);
+        typeEffect(devTitle, 'Network Administrator & Web Developer', 100, 2000);
+        
+        // Enhanced Count Up Animation
+        const countUpElements = document.querySelectorAll('.count-up');
+        let hasAnimated = false;
+        
+        function animateCountUp() {
+            if (hasAnimated) return;
+            hasAnimated = true;
+            
+            countUpElements.forEach(element => {
+                const target = parseInt(element.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+        
+        window.addEventListener('scroll', () => {
+        const triggerOffset = 300;
+        const firstElement = countUpElements[0];
+        if (!firstElement) return;
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>© 2025 My Portfolio. All Rights Reserved.</p>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        const top = firstElement.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
 
-    <script src="script.js"></script>
+        if (top < windowHeight - triggerOffset) {
+            animateCountUp();
+        }
+    });
+
+        // Enhanced Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'skills') {
+                        animateCountUp();
+                        animateSkillBars();
+                    }
+                    
+                    // Add animation classes to elements
+                    const animatedElements = entry.target.querySelectorAll('.skill-item, .project-card, .certificate-card, .testimonial-card');
+                    animatedElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.style.opacity = '1';
+                            el.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        // Observe sections
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Animate Skill Bars
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.classList.add('animate');
+                }, index * 200);
+            });
+        }
+        
+        // Generate GitHub Activity Heatmap
+        function generateGitHubActivity() {
+            const activityContainer = document.getElementById('github-activity');
+            const weeks = window.innerWidth < 768 ? 26 : 53; // Responsive weeks
+            const daysPerWeek = 7;
+            
+            activityContainer.innerHTML = ''; // Clear existing content
+            
+            for (let week = 0; week < weeks; week++) {
+                for (let day = 0; day < daysPerWeek; day++) {
+                    const activityLevel = Math.floor(Math.random() * 5);
+                    const dayElement = document.createElement('div');
+                    dayElement.className = `activity-day activity-${activityLevel}`;
+                    dayElement.title = `${Math.floor(Math.random() * 10)} contributions`;
+                    activityContainer.appendChild(dayElement);
+                }
+            }
+        }
+        
+        generateGitHubActivity();
+        // Enhanced Form Validation
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            submitButton.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitButton.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent!';
+                submitButton.style.background = 'linear-gradient(to right, #10B981, #059669)';
+                
+                setTimeout(() => {
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                    submitButton.style.background = '';
+                    contactForm.reset();
+                }, 2000);
+            }, 1500);
+        });
+        
+        // Enhanced Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Testimonial Modal Functionality
+        const addTestimonialBtn = document.getElementById('add-testimonial-btn');
+        const testimonialModal = document.getElementById('testimonial-modal');
+        const closeModal = document.getElementById('close-modal');
+        const cancelTestimonial = document.getElementById('cancel-testimonial');
+        const testimonialForm = document.getElementById('testimonial-form');
+        const starRating = document.getElementById('star-rating');
+        const testimonialsGrid = document.getElementById('testimonials-grid');
+        
+        let selectedRating = 5;
+        
+        // Star Rating Functionality
+        const stars = starRating.querySelectorAll('.star');
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                selectedRating = index + 1;
+                updateStarRating();
+            });
+            
+            star.addEventListener('mouseover', () => {
+                highlightStars(index + 1);
+            });
+        });
+        
+        starRating.addEventListener('mouseleave', () => {
+            updateStarRating();
+        });
+        
+        function highlightStars(rating) {
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+        
+        function updateStarRating() {
+            highlightStars(selectedRating);
+        }
+        
+        // Modal Controls
+        addTestimonialBtn.addEventListener('click', () => {
+            testimonialModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        function closeTestimonialModal() {
+            testimonialModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            testimonialForm.reset();
+            selectedRating = 5;
+            updateStarRating();
+        }
+        
+        closeModal.addEventListener('click', closeTestimonialModal);
+        cancelTestimonial.addEventListener('click', closeTestimonialModal);
+        
+        testimonialModal.addEventListener('click', (e) => {
+            if (e.target === testimonialModal) {
+                closeTestimonialModal();
+            }
+        });
+        
+        // Add New Testimonial
+        testimonialForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const clientName = document.getElementById('client-name').value;
+            const clientPosition = document.getElementById('client-position').value;
+            const clientAvatar = document.getElementById('client-avatar').value || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80';
+            const testimonialText = document.getElementById('testimonial-text').value;
+            
+            const borderColors = [
+                'border-electric-blue/20',
+                'border-purple-glow/20',
+                'border-green-glow/20',
+                'border-pink-glow/20',
+                'border-orange-glow/20',
+                'border-cyan-glow/20'
+            ];
+            
+            const randomBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)];
+            
+            const newTestimonial = document.createElement('div');
+            newTestimonial.className = `testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border ${randomBorderColor}`;
+            newTestimonial.style.opacity = '0';
+            newTestimonial.style.transform = 'translateY(30px)';
+            
+            const starsHtml = Array(selectedRating).fill('<i class="fas fa-star"></i>').join('');
+            
+            newTestimonial.innerHTML = `
+                <div class="testimonial-content">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            ${starsHtml}
+                        </div>
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">${selectedRating}.0</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                        "${testimonialText}"
+                    </p>
+                </div>
+                <div class="flex items-center">
+                    <img src="${clientAvatar}" alt="${clientName}" class="w-12 h-12 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">${clientName}</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">${clientPosition}</p>
+                    </div>
+                </div>
+            `;
+            
+            testimonialsGrid.appendChild(newTestimonial);
+            
+            // Animate in the new testimonial
+            setTimeout(() => {
+                newTestimonial.style.opacity = '1';
+                newTestimonial.style.transform = 'translateY(0)';
+                newTestimonial.style.transition = 'all 0.6s ease-out';
+            }, 100);
+            
+            closeTestimonialModal();
+            
+            // Show success message
+            const submitButton = testimonialForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-check mr-2"></i> Added Successfully!';
+            submitButton.style.background = 'linear-gradient(to right, #10B981, #059669)';
+            
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.style.background = '';
+            }, 2000);
+        });
+        
+        // Initialize animations and responsive features
+        document.addEventListener('DOMContentLoaded', () => {
+            generateGitHubActivity();
+            
+            // Set initial opacity for animated elements
+            const animatedElements = document.querySelectorAll('.skill-item, .project-card, .certificate-card, .testimonial-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease-out';
+            });
+            
+            // Update star rating
+            updateStarRating();
+        });
+        
+        // Responsive GitHub activity regeneration
+        window.addEventListener('resize', () => {
+            generateGitHubActivity();
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && testimonialModal.classList.contains('show')) {
+                closeTestimonialModal();
+            }
+        });
+    </script>
 </body>
 </html>
