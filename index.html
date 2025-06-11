@@ -2,7 +2,7 @@
 <html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Muhammad Fikri</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -103,7 +103,7 @@
       };
     </script>
     <style type="text/css">
-      /* Enhanced Custom Styles with Softer Light Mode */
+      /* Enhanced Custom Styles with Mobile Support */
       .glass {
         background: rgba(26, 26, 46, 0.3);
         backdrop-filter: blur(12px);
@@ -146,7 +146,8 @@
         filter: grayscale(100%) brightness(0.8);
       }
 
-      .tech-icon:hover {
+      .tech-icon:hover,
+      .tech-icon:active {
         filter: grayscale(0%) brightness(1.2);
         transform: translateY(-10px) scale(1.1);
       }
@@ -173,11 +174,13 @@
         transition: left 0.5s;
       }
 
-      .project-card:hover::before {
+      .project-card:hover::before,
+      .project-card:active::before {
         left: 100%;
       }
 
-      .project-card:hover {
+      .project-card:hover,
+      .project-card:active {
         transform: translateY(-10px) scale(1.02);
       }
 
@@ -198,7 +201,8 @@
         overflow: hidden;
       }
 
-      .certificate-card:hover {
+      .certificate-card:hover,
+      .certificate-card:active {
         transform: translateY(-5px) rotateY(5deg);
       }
 
@@ -209,7 +213,8 @@
         flex-direction: column;
       }
 
-      .testimonial-card:hover {
+      .testimonial-card:hover,
+      .testimonial-card:active {
         transform: scale(1.05);
       }
 
@@ -217,6 +222,7 @@
         flex-grow: 1;
       }
 
+      /* GitHub Activity - TIDAK DIUBAH */
       .github-activity {
         display: grid;
         grid-template-columns: repeat(53, 1fr);
@@ -253,6 +259,19 @@
         background-color: #39d353;
       }
 
+      /* Responsive Grid Fixes - TIDAK DIUBAH */
+      @media (max-width: 768px) {
+        .github-activity {
+          grid-template-columns: repeat(26, 1fr);
+        }
+
+        .activity-day {
+          width: 8px;
+          height: 8px;
+          min-width: 8px;
+        }
+      }
+
       .modal {
         display: none;
         position: fixed;
@@ -283,6 +302,14 @@
         max-height: 90vh;
         overflow-y: auto;
         animation: scaleIn 0.3s ease-out;
+        margin: 1rem;
+      }
+
+      @media (max-width: 640px) {
+        .modal-content {
+          padding: 1.5rem;
+          margin: 0.5rem;
+        }
       }
 
       .star-rating {
@@ -296,68 +323,91 @@
         color: #374151;
         cursor: pointer;
         transition: color 0.2s ease;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .star:hover,
+      .star:active,
       .star.active {
         color: #fbbf24;
       }
 
-      /* Responsive Grid Fixes */
-      @media (max-width: 768px) {
-        .github-activity {
-          grid-template-columns: repeat(26, 1fr);
-        }
-
-        .activity-day {
-          width: 8px;
-          height: 8px;
-          min-width: 8px;
-        }
-      }
-
-      /* Better spacing for cards */
+      /* FIXED: Better spacing for cards with mobile support */
       .card-grid {
         display: grid;
-        gap: 2rem;
+        gap: 1.5rem;
+        width: 100%;
       }
 
-      .card-grid.cols-1 {
+      /* Mobile First Approach */
+      .card-grid.cols-1,
+      .card-grid.cols-2,
+      .card-grid.cols-3,
+      .card-grid.cols-4 {
         grid-template-columns: 1fr;
       }
 
-      .card-grid.cols-2 {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
-
-      .card-grid.cols-3 {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-
-      .card-grid.cols-4 {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-
-      @media (max-width: 640px) {
+      /* Tablet */
+      @media (min-width: 640px) {
         .card-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
+          gap: 2rem;
+        }
+        
+        .card-grid.cols-2,
+        .card-grid.cols-3,
+        .card-grid.cols-4 {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
-      /* Enhanced Skills Section Styling */
+      /* Desktop */
+      @media (min-width: 1024px) {
+        .card-grid.cols-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .card-grid.cols-4 {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      /* FIXED: Enhanced Skills Section with Mobile Support */
       .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
         justify-items: center;
         align-items: start;
       }
 
-      @media (max-width: 640px) {
+      @media (min-width: 480px) {
         .skills-grid {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 1.5rem;
+        }
+      }
+
+      @media (min-width: 640px) {
+        .skills-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .skills-grid {
+          grid-template-columns: repeat(5, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         }
       }
 
@@ -366,16 +416,24 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
-        padding: 1.5rem;
+        padding: 1rem;
         width: 100%;
         max-width: 140px;
         text-align: center;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
         overflow: hidden;
+        -webkit-tap-highlight-color: transparent;
       }
 
-      .skill-card:hover {
+      @media (min-width: 640px) {
+        .skill-card {
+          padding: 1.5rem;
+        }
+      }
+
+      .skill-card:hover,
+      .skill-card:active {
         transform: translateY(-10px) scale(1.05);
         box-shadow: 0 20px 40px rgba(0, 191, 255, 0.3);
         border-color: rgba(0, 191, 255, 0.5);
@@ -397,14 +455,15 @@
         transition: left 0.6s;
       }
 
-      .skill-card:hover::before {
+      .skill-card:hover::before,
+      .skill-card:active::before {
         left: 100%;
       }
 
       .skill-icon-wrapper {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 1rem;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 0.75rem;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -413,18 +472,38 @@
         overflow: hidden;
       }
 
+      @media (min-width: 640px) {
+        .skill-icon-wrapper {
+          width: 60px;
+          height: 60px;
+          margin: 0 auto 1rem;
+        }
+      }
+
       .skill-icon {
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: rgb(0, 0, 0);
         z-index: 2;
         position: relative;
       }
 
+      @media (min-width: 640px) {
+        .skill-icon {
+          font-size: 2rem;
+        }
+      }
+
       .skill-name {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         font-weight: 600;
         margin-bottom: 0.5rem;
         color: #e5e7eb;
+      }
+
+      @media (min-width: 640px) {
+        .skill-name {
+          font-size: 0.875rem;
+        }
       }
 
       .skill-level {
@@ -446,6 +525,22 @@
 
       .skill-level-fill.animate {
         transform: translateX(0);
+      }
+
+      /* Touch-friendly improvements */
+      @media (hover: none) and (pointer: coarse) {
+        .skill-card:active,
+        .project-card:active,
+        .certificate-card:active,
+        .testimonial-card:active {
+          transform: scale(0.98);
+        }
+      }
+
+      /* Ensure proper touch targets */
+      button, .skill-card, .project-card, .certificate-card, .testimonial-card {
+        min-height: 44px;
+        min-width: 44px;
       }
     </style>
   </head>
@@ -761,7 +856,7 @@
             My Projects
           </span>
         </h2>
-        <div class="card-grid cols-3 lg:cols-4 gap-6 lg:gap-8">
+        <div class="card-grid cols-3">
           
           <!-- Enhanced Project Cards with better spacing -->
           <div
@@ -1290,7 +1385,7 @@
             GitHub Statistics
           </h3>
 
-          <!-- GitHub Activity Heatmap with Better Responsive Design -->
+          <!-- GitHub Activity Heatmap - TIDAK DIUBAH -->
           <div
             class="mb-12 p-4 sm:p-6 rounded-xl shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass"
           >
@@ -2528,7 +2623,7 @@
       </div>
     </div>
 
-    <!-- Enhanced JavaScript -->
+    <!-- Enhanced JavaScript with Mobile Support -->
     <script>
       // Wrap all JavaScript in an IIFE to avoid global scope pollution
       (function () {
@@ -2562,6 +2657,10 @@
           currentYear: document.getElementById("current-year"),
         };
 
+        // Enhanced Mobile Detection
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
         // Email Form Handler
         if (elements.emailForm) {
           elements.emailForm.addEventListener("submit", function (event) {
@@ -2579,9 +2678,10 @@
           });
         }
 
-        // Theme Toggle
+        // Enhanced Theme Toggle with Mobile Support
         if (elements.themeToggle) {
-          elements.themeToggle.addEventListener("click", () => {
+          const handleThemeToggle = (e) => {
+            e.preventDefault();
             elements.html.classList.toggle("dark");
             localStorage.setItem(
               "theme",
@@ -2592,7 +2692,12 @@
             setTimeout(() => {
               elements.themeToggle.style.transform = "scale(1)";
             }, 150);
-          });
+          };
+
+          elements.themeToggle.addEventListener("click", handleThemeToggle);
+          if (isTouch) {
+            elements.themeToggle.addEventListener("touchend", handleThemeToggle);
+          }
 
           // Check for saved theme preference
           if (localStorage.getItem("theme") === "light") {
@@ -2600,14 +2705,20 @@
           }
         }
 
-        // Mobile Menu Toggle
+        // Enhanced Mobile Menu Toggle
         if (elements.mobileMenuButton && elements.mobileMenu) {
-          elements.mobileMenuButton.addEventListener("click", () => {
+          const toggleMobileMenu = (e) => {
+            e.preventDefault();
             elements.mobileMenu.classList.toggle("hidden");
-          });
+          };
+
+          elements.mobileMenuButton.addEventListener("click", toggleMobileMenu);
+          if (isTouch) {
+            elements.mobileMenuButton.addEventListener("touchend", toggleMobileMenu);
+          }
         }
 
-        // Active Navigation Link
+        // Enhanced Active Navigation Link
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".nav-link");
 
@@ -2629,9 +2740,19 @@
           });
         }
 
-        window.addEventListener("scroll", updateActiveNavLink);
+        // Enhanced scroll handling for mobile
+        let ticking = false;
+        function requestTick() {
+          if (!ticking) {
+            requestAnimationFrame(updateActiveNavLink);
+            ticking = true;
+            setTimeout(() => { ticking = false; }, 16);
+          }
+        }
 
-        // Typing Effect
+        window.addEventListener("scroll", requestTick, { passive: true });
+
+        // Enhanced Typing Effect
         function typeEffect(element, text, speed = 100, delay = 0) {
           if (!element) return;
 
@@ -2658,7 +2779,7 @@
           2000
         );
 
-        // Count Up Animation
+        // Enhanced Count Up Animation
         const countUpElements = document.querySelectorAll(".count-up");
 
         function animateCountUp() {
@@ -2683,7 +2804,7 @@
           });
         }
 
-        // Animate Skill Bars
+        // Enhanced Animate Skill Bars
         function animateSkillBars() {
           const skillBars = document.querySelectorAll(".skill-level-fill");
           skillBars.forEach((bar, index) => {
@@ -2693,7 +2814,12 @@
           });
         }
 
-        // Intersection Observer
+        // Enhanced Intersection Observer with Mobile Optimization
+        const observerOptions = {
+          threshold: isMobile ? 0.1 : 0.3,
+          rootMargin: isMobile ? "50px" : "0px"
+        };
+
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -2710,19 +2836,19 @@
                   setTimeout(() => {
                     el.style.opacity = "1";
                     el.style.transform = "translateY(0)";
-                  }, index * 100);
+                  }, index * (isMobile ? 50 : 100));
                 });
               }
             });
           },
-          { threshold: 0.3 }
+          observerOptions
         );
 
         sections.forEach((section) => {
           observer.observe(section);
         });
 
-        // Generate GitHub Activity Heatmap
+        // Enhanced GitHub Activity Generation - TIDAK DIUBAH
         function generateGitHubActivity() {
           if (!elements.githubActivity) return;
 
@@ -2744,7 +2870,7 @@
           }
         }
 
-        // Back to Top Button
+        // Enhanced Back to Top Button
         if (elements.backToTopButton) {
           function updateBackToTopButton() {
             if (window.pageYOffset > 300) {
@@ -2762,34 +2888,52 @@
             }
           }
 
-          window.addEventListener("scroll", updateBackToTopButton);
+          window.addEventListener("scroll", updateBackToTopButton, { passive: true });
 
-          elements.backToTopButton.addEventListener("click", () => {
+          const scrollToTop = (e) => {
+            e.preventDefault();
             window.scrollTo({
               top: 0,
               behavior: "smooth",
             });
-          });
+          };
+
+          elements.backToTopButton.addEventListener("click", scrollToTop);
+          if (isTouch) {
+            elements.backToTopButton.addEventListener("touchend", scrollToTop);
+          }
         }
 
-        // Testimonial Modal Functionality
+        // Enhanced Testimonial Modal Functionality with Touch Support
         if (elements.starRating) {
           const stars = elements.starRating.querySelectorAll(".star");
 
           stars.forEach((star, index) => {
-            star.addEventListener("click", () => {
+            const handleStarClick = (e) => {
+              e.preventDefault();
               selectedRating = index + 1;
               updateStarRating();
-            });
+            };
 
-            star.addEventListener("mouseover", () => {
-              highlightStars(index + 1);
-            });
+            const handleStarHover = () => {
+              if (!isTouch) {
+                highlightStars(index + 1);
+              }
+            };
+
+            star.addEventListener("click", handleStarClick);
+            if (isTouch) {
+              star.addEventListener("touchend", handleStarClick);
+            } else {
+              star.addEventListener("mouseover", handleStarHover);
+            }
           });
 
-          elements.starRating.addEventListener("mouseleave", () => {
-            updateStarRating();
-          });
+          if (!isTouch) {
+            elements.starRating.addEventListener("mouseleave", () => {
+              updateStarRating();
+            });
+          }
 
           function highlightStars(rating) {
             stars.forEach((star, index) => {
@@ -2809,7 +2953,7 @@
           updateStarRating();
         }
 
-        // Modal Controls
+        // Enhanced Modal Controls with Touch Support
         function closeTestimonialModal() {
           if (elements.testimonialModal) {
             elements.testimonialModal.classList.remove("show");
@@ -2832,21 +2976,40 @@
         }
 
         if (elements.addTestimonialBtn) {
-          elements.addTestimonialBtn.addEventListener("click", () => {
+          const openModal = (e) => {
+            e.preventDefault();
             elements.testimonialModal.classList.add("show");
             document.body.style.overflow = "hidden";
-          });
+          };
+
+          elements.addTestimonialBtn.addEventListener("click", openModal);
+          if (isTouch) {
+            elements.addTestimonialBtn.addEventListener("touchend", openModal);
+          }
         }
 
         if (elements.closeModal) {
-          elements.closeModal.addEventListener("click", closeTestimonialModal);
+          const closeModal = (e) => {
+            e.preventDefault();
+            closeTestimonialModal();
+          };
+
+          elements.closeModal.addEventListener("click", closeModal);
+          if (isTouch) {
+            elements.closeModal.addEventListener("touchend", closeModal);
+          }
         }
 
         if (elements.cancelTestimonial) {
-          elements.cancelTestimonial.addEventListener(
-            "click",
-            closeTestimonialModal
-          );
+          const cancelModal = (e) => {
+            e.preventDefault();
+            closeTestimonialModal();
+          };
+
+          elements.cancelTestimonial.addEventListener("click", cancelModal);
+          if (isTouch) {
+            elements.cancelTestimonial.addEventListener("touchend", cancelModal);
+          }
         }
 
         if (elements.testimonialModal) {
@@ -2857,7 +3020,7 @@
           });
         }
 
-        // Add New Testimonial
+        // Enhanced Add New Testimonial
         if (elements.testimonialForm) {
           elements.testimonialForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -2942,9 +3105,9 @@
           });
         }
 
-        // Smooth scrolling for navigation links
+        // Enhanced smooth scrolling for navigation links with mobile support
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
+          const handleClick = function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute("href"));
             if (target) {
@@ -2957,10 +3120,15 @@
                 elements.mobileMenu &&
                 !elements.mobileMenu.classList.contains("hidden")
               ) {
-                elements.mobile.classList.add("hidden");
+                elements.mobileMenu.classList.add("hidden");
               }
             }
-          });
+          };
+
+          anchor.addEventListener("click", handleClick);
+          if (isTouch) {
+            anchor.addEventListener("touchend", handleClick);
+          }
         });
 
         // Set current year in footer
@@ -2979,8 +3147,19 @@
           }
         });
 
-        // Initialize on DOM load
-        document.addEventListener("DOMContentLoaded", () => {
+        // Enhanced resize handler with debouncing
+        let resizeTimeout;
+        function handleResize() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            generateGitHubActivity();
+          }, 250);
+        }
+
+        window.addEventListener("resize", handleResize, { passive: true });
+
+        // Enhanced initialization
+        function initializeApp() {
           generateGitHubActivity();
 
           // Set initial opacity for animated elements
@@ -2992,15 +3171,27 @@
             el.style.transform = "translateY(30px)";
             el.style.transition = "all 0.6s ease-out";
           });
-        });
 
-        // Responsive GitHub activity regeneration
-        window.addEventListener("resize", () => {
-          generateGitHubActivity();
-        });
+          // Prevent zoom on double tap for iOS
+          if (isTouch) {
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function (event) {
+              const now = (new Date()).getTime();
+              if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+              }
+              lastTouchEnd = now;
+            }, false);
+          }
+        }
 
-        // Initial call to generate GitHub activity
-        generateGitHubActivity();
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+          initializeApp();
+        }
+
       })();
     </script>
   </body>
