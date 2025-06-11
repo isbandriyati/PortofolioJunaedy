@@ -34,8 +34,8 @@
               "orange-glow": "#F59E0B",
               "dark-bg": "#0F0F23",
               "dark-card": "#1A1A2E",
-              "light-bg": "#F8FAFC",
-              "light-card": "#FFFFFF",
+              "light-bg": "#F1F5F9",
+              "light-card": "#FEFEFE",
             },
             boxShadow: {
               "neuro-dark": "8px 8px 16px #0a0a0a, -8px -8px 16px #1e1e1e",
@@ -103,7 +103,7 @@
       };
     </script>
     <style type="text/css">
-      /* Enhanced Custom Styles */
+      /* Enhanced Custom Styles with Softer Light Mode */
       .glass {
         background: rgba(26, 26, 46, 0.3);
         backdrop-filter: blur(12px);
@@ -112,10 +112,10 @@
       }
 
       .glass-light {
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(248, 250, 252, 0.8);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(226, 232, 240, 0.6);
       }
 
       .gradient-bg {
@@ -344,14 +344,117 @@
           gap: 1.5rem;
         }
       }
+
+      /* Enhanced Skills Section Styling */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 2rem;
+        justify-items: center;
+        align-items: start;
+      }
+
+      @media (max-width: 640px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      .skill-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 140px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 191, 255, 0.3);
+        border-color: rgba(0, 191, 255, 0.5);
+      }
+
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .skill-card:hover::before {
+        left: 100%;
+      }
+
+      .skill-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-icon {
+        font-size: 2rem;
+        color: rgb(0, 0, 0);
+        z-index: 2;
+        position: relative;
+      }
+
+      .skill-name {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #e5e7eb;
+      }
+
+      .skill-level {
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .skill-level-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #00bfff, #8b5cf6);
+        border-radius: 2px;
+        transform: translateX(-100%);
+        transition: transform 1.5s ease-out;
+      }
+
+      .skill-level-fill.animate {
+        transform: translateX(0);
+      }
     </style>
   </head>
   <body
-    class="bg-light-bg dark:bg-dark-bg text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300"
+    class="bg-slate-50 dark:bg-dark-bg text-gray-700 dark:text-gray-200 font-sans transition-colors duration-300"
   >
     <!-- Enhanced Header -->
     <header
-      class="fixed top-0 left-0 right-0 z-50 glass dark:glass transition-all duration-300"
+      class="fixed top-0 left-0 right-0 z-50 glass-light dark:glass transition-all duration-300"
     >
       <div class="container mx-auto px-4 sm:px-6 py-4">
         <div class="flex justify-between items-center">
@@ -555,7 +658,7 @@
                 <img
                   src="image/pp.png"
                   alt="Profile Photo"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover object-center"
                 />
               </div>
               <div
@@ -587,7 +690,7 @@
             <p
               class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-sm sm:text-base"
             >
-              As a recent graduate in web development, I’ve worked on various
+              As a recent graduate in web development, I've worked on various
               projects during my studies and through freelance work—ranging from
               simple websites to applications with complex features. I enjoy
               combining technical skills with creative problem-solving to
@@ -648,7 +751,7 @@
     <!-- Enhanced Projects Section -->
     <section
       id="projects"
-      class="py-16 sm:py-20 md:py-32 bg-gray-100 dark:bg-gray-900"
+      class="py-16 sm:py-20 md:py-32 bg-slate-100 dark:bg-gray-900"
     >
       <div class="container mx-auto px-4 sm:px-6">
         <h2
@@ -658,24 +761,92 @@
             My Projects
           </span>
         </h2>
-        <div class="card-grid cols-3">
+        <div class="card-grid cols-3 lg:cols-4 gap-6 lg:gap-8">
+          
           <!-- Enhanced Project Cards with better spacing -->
           <div
             class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-electric-blue/20"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative aspect-video bg-black flex items-center justify-center overflow-hidden">
               <img
-                src="image/project.png"
-                alt="Sistem Informasi Penyusunan Kurikulum Poliban Berbasis OBE"
-                class="w-full h-full object-cover"
+                src="image/chatbot.png"
+                alt="AI ChatBot By Muhammad Fikri"
+                class="w-full h-full"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"
               ></div>
               <div
-                class="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white text-xs font-bold"
+                class="absolute top-2 right-2 px-3 py-1 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white text-xs font-bold"
               >
                 New
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                AI ChatBot by Muhammad Fikri
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-4 text-sm text-justify"
+              >
+                An intelligent AI-powered chatbot designed to interact naturally with users
+                using natural language processing. Built to handle both general conversations
+                and custom tasks, this chatbot integrates modern AI techniques and user-friendly
+                UI/UX for an engaging experience. Developed by Muhammad Fikri with a focus on
+                performance, responsiveness, and scalability.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-medium"
+                  >html</span
+                >
+                <span
+                  class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium"
+                  >CSS</span
+                >
+                <span
+                  class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-medium"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-400 to-purple-500 text-white font-medium"
+                  >Gemini API</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a
+                  href="https://muhammadfikriiii.github.io/FikriChatBot/"
+                  class="flex-1 px-4 py-2 rounded-full bg-gradient-to-r from-electric-blue to-cyan-glow text-white text-sm font-medium hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center"
+                >
+                  <i class="fas fa-eye mr-1"></i> Demo
+                </a>
+                <a
+                  href="https://github.com/MuhammadFikriiii/FikriChatBot"
+                  class="flex-1 px-4 py-2 rounded-full bg-transparent border border-electric-blue text-electric-blue text-sm font-medium hover:bg-electric-blue hover:text-white hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center"
+                >
+                  <i class="fab fa-github mr-1"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enhanced Project Cards with better spacing -->
+          <div
+            class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-electric-blue/20"
+          >
+            <div class="relative aspect-video overflow-hidden">
+              <img
+                src="image/project.png"
+                alt="Sistem Informasi Penyusunan Kurikulum Poliban Berbasis OBE"
+                class="w-full h-full"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"
+              ></div>
+              <div
+                class="absolute top-2 right-2 px-3 py-1 rounded-full bg-gradient-to-r from-yellow-400 to-red-500 text-white text-xs font-bold"
+              >
+                Website
               </div>
             </div>
             <div class="p-6">
@@ -744,11 +915,11 @@
           <div
             class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-purple-glow/20"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative aspect-video overflow-hidden">
               <img
                 src="image/project1.png"
                 alt="Large-Scale LAN Design Using Cisco Packet Tracer "
-                class="w-full h-full object-cover"
+                class="w-full h-full"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"
@@ -807,15 +978,77 @@
             </div>
           </div>
 
+          <!-- Enhanced Project Cards with better spacing -->
+          <div
+            class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-electric-blue/20"
+          >
+            <div class="relative aspect-video bg-black flex items-center justify-center overflow-hidden">
+              <img
+                src="image/ulartangga.png"
+                alt="Snakes-and-Ladders"
+                class="w-full h-full"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"
+              ></div>
+              <div
+                class="absolute top-2 right-2 px-3 py-1 rounded-full bg-gradient-to-r from-pink-400 to-emerald-500 text-white text-xs font-bold"
+              >
+                Game
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                Snakes And Ladders Game
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-4 text-sm text-justify"
+              >
+                A web-based Snakes and Ladders game built using HTML, CSS, and JavaScript.
+                This classic board game is recreated with interactive features, allowing
+                two players to roll dice, move pieces, and enjoy a nostalgic experience with
+                smooth animations and responsive design. Perfect for casual play and fun.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-medium"
+                  >html</span
+                >
+                <span
+                  class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium"
+                  >CSS</span
+                >
+                <span
+                  class="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-medium"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a
+                  href="https://muhammadfikriiii.github.io/Snakes-and-Ladders./"
+                  class="flex-1 px-4 py-2 rounded-full bg-gradient-to-r from-electric-blue to-cyan-glow text-white text-sm font-medium hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center"
+                >
+                  <i class="fas fa-eye mr-1"></i> Demo
+                </a>
+                <a
+                  href="https://github.com/MuhammadFikriiii/Snakes-and-Ladders."
+                  class="flex-1 px-4 py-2 rounded-full bg-transparent border border-electric-blue text-electric-blue text-sm font-medium hover:bg-electric-blue hover:text-white hover:shadow-glow transform hover:scale-105 transition-all duration-300 text-center"
+                >
+                  <i class="fab fa-github mr-1"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
           <!-- Continue with more enhanced project cards... -->
           <div
             class="project-card rounded-xl overflow-hidden shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border border-pink-glow/20"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative aspect-video overflow-hidden">
               <img
                 src="image/sima.jpg"
                 alt="AI Chat Assistant"
-                class="w-full h-full object-cover"
+                class="w-full h-full"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-70"
@@ -909,293 +1142,141 @@
           </span>
         </h2>
 
-        <!-- Animated Technical Skills with Better Grid -->
+        <!-- Enhanced Technical Skills with Better Grid -->
         <div class="mb-16">
           <h3
             class="text-xl sm:text-2xl font-bold mb-8 text-center gradient-bg bg-clip-text text-transparent"
           >
             Technical Skills
           </h3>
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8 justify-items-center"
-          >
+          <div class="skills-grid">
             <!-- HTML -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="html"
-            >
+            <div class="skill-card skill-item" data-skill="html">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-orange-400 to-red-500 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-orange-400 to-red-500"
               >
-                <i
-                  class="fab fa-html5 text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fab fa-html5 skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >HTML5</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">HTML5</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
             <!-- CSS -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="css"
-            >
+            <div class="skill-card skill-item" data-skill="css">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-400 to-blue-600 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-blue-400 to-blue-600"
               >
-                <i
-                  class="fab fa-css3-alt text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fab fa-css3-alt skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >Tailwind CSS</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">Tailwind CSS</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
             <!-- JavaScript -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="js"
-            >
+            <div class="skill-card skill-item" data-skill="js">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-yellow-400 to-yellow-600 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-yellow-400 to-yellow-600"
               >
-                <i
-                  class="fab fa-js text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fab fa-js skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >JavaScript</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">JavaScript</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
-            <!-- cisco -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="react"
-            >
+            <!-- Cisco -->
+            <div class="skill-card skill-item" data-skill="cisco">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-cyan-400 to-blue-500 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-cyan-400 to-blue-500"
               >
-                <i
-                  class="fas fa-network-wired text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fas fa-network-wired skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >Cisco</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">Cisco</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
-            <!-- MySql -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="node"
-            >
+            <!-- MySQL -->
+            <div class="skill-card skill-item" data-skill="mysql">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-green-500 to-green-700 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-green-500 to-green-700"
               >
-                <i
-                  class="fas fa-database text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fas fa-database skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >MySql</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">MySQL</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
             <!-- PHP -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="python"
-            >
+            <div class="skill-card skill-item" data-skill="php">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-500 to-yellow-500 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-blue-500 to-yellow-500"
               >
-                <i
-                  class="fab fa-php text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fab fa-php skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >PHP</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">PHP</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
             <!-- Laravel -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="python"
-            >
+            <div class="skill-card skill-item" data-skill="laravel">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-500 to-pink-500 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-red-500 to-orange-500"
               >
-                <i
-                  class="fab fa-laravel text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fab fa-laravel skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >Laravel</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">Laravel</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
             <!-- Figma -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="python"
-            >
+            <div class="skill-card skill-item" data-skill="figma">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-red-500 to-yellow-500 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-purple-500 to-pink-500"
               >
-                <i
-                  class="fab fa-figma text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fab fa-figma skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >Figma</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-800 dark:bg-gray-900 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">Figma</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
             <!-- Excel -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="python"
-            >
+            <div class="skill-card skill-item" data-skill="excel">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-green-500 to-green-900 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-green-600 to-green-800"
               >
-                <i
-                  class="fas fa-file-excel text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fas fa-file-excel skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >Excel</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-800 dark:bg-gray-900 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">Excel</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
 
             <!-- Word -->
-            <div
-              class="tech-icon group relative flex flex-col items-center skill-item w-full max-w-[120px]"
-              data-skill="python"
-            >
+            <div class="skill-card skill-item" data-skill="word">
               <div
-                class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full shadow-neuro-light dark:shadow-neuro-dark bg-gradient-to-br from-blue-500 to-blue-900 mb-3 relative overflow-hidden"
+                class="skill-icon-wrapper bg-gradient-to-br from-blue-600 to-blue-800"
               >
-                <i
-                  class="fas fa-file-word text-2xl sm:text-4xl text-white animate-spin-slow"
-                ></i>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                ></div>
+                <i class="fas fa-file-word skill-icon"></i>
               </div>
-              <span class="text-xs sm:text-sm font-medium text-center"
-                >Word</span
-              >
-              <div
-                class="w-12 sm:w-16 h-2 bg-gray-800 dark:bg-gray-900 rounded-full mt-2 skill-bar"
-              >
-                <div
-                  class="skill-progress h-full rounded-full"
-                  style="width: 100%"
-                ></div>
+              <div class="skill-name">Word</div>
+              <div class="skill-level">
+                <div class="skill-level-fill" style="width: 100%"></div>
               </div>
             </div>
           </div>
@@ -1247,7 +1328,7 @@
               </div>
               <p
                 class="text-2xl sm:text-4xl font-bold text-electric-blue count-up"
-                data-target="10"
+                data-target="12"
               >
                 0
               </p>
@@ -1363,7 +1444,7 @@
     <!-- Enhanced Certificates Section with Better Grid -->
     <section
       id="certificates"
-      class="py-16 sm:py-20 md:py-32 bg-gray-100 dark:bg-gray-900"
+      class="py-16 sm:py-20 md:py-32 bg-slate-100 dark:bg-gray-900"
     >
       <div class="container mx-auto px-4 sm:px-6">
         <h2
@@ -1384,7 +1465,7 @@
               <img
                 src="image/jscoi.png"
                 alt="Belajar Dasar Pemrograman JavaScript Certificate"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1423,7 +1504,7 @@
               <img
                 src="image/dicodingbackend.png"
                 alt="Back-End Certificate"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1461,7 +1542,7 @@
               <img
                 src="image/ccn.png"
                 alt="Certificate ccn"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1499,7 +1580,7 @@
               <img
                 src="image/filterdata.png"
                 alt="Certificate filterdata"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1537,7 +1618,7 @@
               <img
                 src="image/coursera.png"
                 alt="Certificate coursera"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1558,10 +1639,10 @@
               <p
                 class="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mb-4"
               >
-                ompleted hands-on guided project introducing key Excel features,
-                including formatting, formulas, charts, and functions. Acquired
-                foundational skills to create and manage spreadsheets for
-                budgeting, tracking, and data analysis.
+                Completed hands-on guided project introducing key Excel
+                features, including formatting, formulas, charts, and functions.
+                Acquired foundational skills to create and manage spreadsheets
+                for budgeting, tracking, and data analysis.
               </p>
             </div>
           </div>
@@ -1574,7 +1655,7 @@
               <img
                 src="image/lintasarta.jpg"
                 alt="Certificate Lintasarta"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div
                 class="absolute top-2 left-2 px-3 py-1 rounded-full bg-blue-300/70 text-white text-xs font-bold"
@@ -1608,7 +1689,7 @@
               <img
                 src="image/upayateknik.jpg"
                 alt="Certificate upayateknik"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1647,7 +1728,7 @@
               <img
                 src="image/office.jpg"
                 alt="Certificate office"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1686,7 +1767,7 @@
               <img
                 src="image/design.jpg"
                 alt="Certificate design.jpg"
-                class="w-full h-full object-contain"
+                class="w-full h-full object-contain p-2"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white"></div>
@@ -1727,17 +1808,13 @@
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-0">
             <span class="relative gradient-bg bg-clip-text text-transparent">
               What Clients Say
-              <span
-                class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-electric-blue via-purple-glow to-pink-glow transform -translate-y-2"
-              ></span>
             </span>
           </h2>
           <button
             id="add-testimonial-btn"
             class="px-6 py-3 rounded-full bg-gradient-to-r from-electric-blue to-purple-glow text-white font-medium hover:shadow-glow-strong transform hover:scale-105 transition-all duration-300"
           >
-            <i class="fas fa-plus mr-2"></i> Add / This feature will be
-            available soon.
+            <i class="fas fa-plus mr-2"></i> Add Testimonial
           </button>
         </div>
 
@@ -1771,7 +1848,7 @@
               <img
                 src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
                 alt="Sarah Fikrison"
-                class="w-12 h-12 rounded-full object-contain mr-4"
+                class="w-12 h-12 rounded-full object-cover mr-4"
               />
               <div>
                 <h4
@@ -2065,7 +2142,7 @@
     <!-- Enhanced Contact Section -->
     <section
       id="contact"
-      class="py-16 sm:py-20 md:py-32 bg-gray-100 dark:bg-gray-900"
+      class="py-16 sm:py-20 md:py-32 bg-slate-100 dark:bg-gray-900"
     >
       <div class="container mx-auto px-4 sm:px-6">
         <h2
@@ -2192,6 +2269,12 @@
                 >
                   <i class="fab fa-instagram"></i>
                 </a>
+                <a
+                  href="https://www.tiktok.com/@user9231931433?_t=ZS-8x6XtzItpHW&_r=1"
+                  class="w-12 h-12 rounded-full bg-gradient-to-r from-black to-gray-800 flex items-center justify-center text-white hover:from-electric-blue hover:to-purple-glow hover:shadow-glow transform hover:scale-110 transition-all duration-300"
+                >
+                  <i class="fab fa-tiktok"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -2310,6 +2393,12 @@
               class="text-gray-400 hover:text-electric-blue transform hover:scale-110 transition-all duration-300"
             >
               <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a
+              href="https://www.tiktok.com/@user9231931433?_t=ZS-8x6XtzItpHW&_r=1"
+              class="text-gray-400 hover:text-electric-blue transform hover:scale-110 transition-all duration-300"
+            >
+              <i class="fab fa-tiktok text-xl"></i>
             </a>
           </div>
 
@@ -2441,465 +2530,478 @@
 
     <!-- Enhanced JavaScript -->
     <script>
-      // Inisialisasi EmailJS dengan Public Key Anda
-      emailjs.init("MkDTippaiZtJd2cUV"); // Gunakan public key yang sesuai dengan akun Anda
+      // Wrap all JavaScript in an IIFE to avoid global scope pollution
+      (function () {
+        "use strict";
 
-      // Event listener untuk submit form
-      const form = document.getElementById("emailForm");
+        // Initialize EmailJS with Public Key
+        emailjs.init("MkDTippaiZtJd2cUV");
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Mencegah form melakukan reload halaman
+        // Global variables
+        let hasAnimated = false;
+        let selectedRating = 5;
 
-        // Kirim email menggunakan EmailJS dengan ID form dan template
-        emailjs.sendForm("service_rw9xkqw", "template_z37v5ih", this).then(
-          function (response) {
-            alert("Pesan berhasil dikirim!");
-            form.reset(); // Reset form setelah berhasil mengirim
-          },
-          function (error) {
-            alert("Terjadi kesalahan: " + error.text);
-          }
-        );
-      });
+        // DOM Elements
+        const elements = {
+          themeToggle: document.getElementById("theme-toggle"),
+          html: document.documentElement,
+          mobileMenuButton: document.getElementById("mobile-menu-button"),
+          mobileMenu: document.getElementById("mobile-menu"),
+          emailForm: document.getElementById("emailForm"),
+          backToTopButton: document.getElementById("back-to-top"),
+          addTestimonialBtn: document.getElementById("add-testimonial-btn"),
+          testimonialModal: document.getElementById("testimonial-modal"),
+          closeModal: document.getElementById("close-modal"),
+          cancelTestimonial: document.getElementById("cancel-testimonial"),
+          testimonialForm: document.getElementById("testimonial-form"),
+          starRating: document.getElementById("star-rating"),
+          testimonialsGrid: document.getElementById("testimonials-grid"),
+          devName: document.getElementById("dev-name"),
+          devTitle: document.getElementById("dev-title"),
+          githubActivity: document.getElementById("github-activity"),
+          currentYear: document.getElementById("current-year"),
+        };
 
-      // Enhanced Theme Toggle
-      const themeToggle = document.getElementById("theme-toggle");
-      const html = document.documentElement;
+        // Email Form Handler
+        if (elements.emailForm) {
+          elements.emailForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-      themeToggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        localStorage.setItem(
-          "theme",
-          html.classList.contains("dark") ? "dark" : "light"
-        );
-
-        // Add animation effect
-        themeToggle.style.transform = "scale(0.8)";
-        setTimeout(() => {
-          themeToggle.style.transform = "scale(1)";
-        }, 150);
-      });
-
-      // Check for saved theme preference
-      if (localStorage.getItem("theme") === "light") {
-        html.classList.remove("dark");
-      }
-
-      // Mobile Menu Toggle
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // Enhanced Active Navigation Link
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".nav-link");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-
-          if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").substring(1) === current) {
-            link.classList.add("active");
-          }
-        });
-      });
-
-      // Enhanced Typing Effect
-      function typeEffect(element, text, speed = 100, delay = 0) {
-        setTimeout(() => {
-          element.textContent = "";
-          let i = 0;
-          const timer = setInterval(() => {
-            if (i < text.length) {
-              element.textContent += text.charAt(i);
-              i++;
-            } else {
-              clearInterval(timer);
-            }
-          }, speed);
-        }, delay);
-      }
-
-      const devName = document.getElementById("dev-name");
-      const devTitle = document.getElementById("dev-title");
-
-      typeEffect(devName, "Muhammad Fikri", 150);
-      typeEffect(devTitle, "Network Administrator & Web Developer", 100, 2000);
-
-      // Enhanced Count Up Animation
-      const countUpElements = document.querySelectorAll(".count-up");
-      let hasAnimated = false;
-
-      function animateCountUp() {
-        if (hasAnimated) return;
-        hasAnimated = true;
-
-        countUpElements.forEach((element) => {
-          const target = parseInt(element.getAttribute("data-target"));
-          const duration = 2000;
-          const increment = target / (duration / 16);
-          let current = 0;
-
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              element.textContent = target;
-              clearInterval(timer);
-            } else {
-              element.textContent = Math.floor(current);
-            }
-          }, 16);
-        });
-      }
-
-      window.addEventListener("scroll", () => {
-        const triggerOffset = 300;
-        const firstElement = countUpElements[0];
-        if (!firstElement) return;
-
-        const top = firstElement.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (top < windowHeight - triggerOffset) {
-          animateCountUp();
-        }
-      });
-
-      // Enhanced Intersection Observer
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              if (entry.target.id === "skills") {
-                animateCountUp();
-                animateSkillBars();
+            emailjs.sendForm("service_rw9xkqw", "template_z37v5ih", this).then(
+              function (response) {
+                alert("Pesan berhasil dikirim!");
+                elements.emailForm.reset();
+              },
+              function (error) {
+                alert("Terjadi kesalahan: " + error.text);
               }
+            );
+          });
+        }
 
-              // Add animation classes to elements
-              const animatedElements = entry.target.querySelectorAll(
-                ".skill-item, .project-card, .certificate-card, .testimonial-card"
-              );
-              animatedElements.forEach((el, index) => {
-                setTimeout(() => {
-                  el.style.opacity = "1";
-                  el.style.transform = "translateY(0)";
-                }, index * 100);
-              });
+        // Theme Toggle
+        if (elements.themeToggle) {
+          elements.themeToggle.addEventListener("click", () => {
+            elements.html.classList.toggle("dark");
+            localStorage.setItem(
+              "theme",
+              elements.html.classList.contains("dark") ? "dark" : "light"
+            );
+
+            elements.themeToggle.style.transform = "scale(0.8)";
+            setTimeout(() => {
+              elements.themeToggle.style.transform = "scale(1)";
+            }, 150);
+          });
+
+          // Check for saved theme preference
+          if (localStorage.getItem("theme") === "light") {
+            elements.html.classList.remove("dark");
+          }
+        }
+
+        // Mobile Menu Toggle
+        if (elements.mobileMenuButton && elements.mobileMenu) {
+          elements.mobileMenuButton.addEventListener("click", () => {
+            elements.mobileMenu.classList.toggle("hidden");
+          });
+        }
+
+        // Active Navigation Link
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        function updateActiveNavLink() {
+          let current = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 200) {
+              current = section.getAttribute("id");
             }
           });
-        },
-        { threshold: 0.3 }
-      );
 
-      // Observe sections
-      sections.forEach((section) => {
-        observer.observe(section);
-      });
-
-      // Animate Skill Bars
-      function animateSkillBars() {
-        const skillBars = document.querySelectorAll(".skill-progress");
-        skillBars.forEach((bar, index) => {
-          setTimeout(() => {
-            bar.classList.add("animate");
-          }, index * 200);
-        });
-      }
-
-      // Generate GitHub Activity Heatmap
-      function generateGitHubActivity() {
-        const activityContainer = document.getElementById("github-activity");
-        const weeks = window.innerWidth < 768 ? 26 : 53; // Responsive weeks
-        const daysPerWeek = 7;
-
-        activityContainer.innerHTML = ""; // Clear existing content
-
-        for (let week = 0; week < weeks; week++) {
-          for (let day = 0; day < daysPerWeek; day++) {
-            const activityLevel = Math.floor(Math.random() * 5);
-            const dayElement = document.createElement("div");
-            dayElement.className = `activity-day activity-${activityLevel}`;
-            dayElement.title = `${Math.floor(
-              Math.random() * 10
-            )} contributions`;
-            activityContainer.appendChild(dayElement);
-          }
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").substring(1) === current) {
+              link.classList.add("active");
+            }
+          });
         }
-      }
 
-      generateGitHubActivity();
-      // Enhanced Form Validation
-      const contactForm = document.getElementById("contact-form");
+        window.addEventListener("scroll", updateActiveNavLink);
 
-      contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const submitButton = e.target.querySelector('button[type="submit"]');
-        const originalText = submitButton.innerHTML;
-
-        // Show loading state
-        submitButton.innerHTML =
-          '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-        submitButton.disabled = true;
-
-        // Simulate form submission
-        setTimeout(() => {
-          submitButton.innerHTML =
-            '<i class="fas fa-check mr-2"></i> Message Sent!';
-          submitButton.style.background =
-            "linear-gradient(to right, #10B981, #059669)";
+        // Typing Effect
+        function typeEffect(element, text, speed = 100, delay = 0) {
+          if (!element) return;
 
           setTimeout(() => {
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-            submitButton.style.background = "";
-            contactForm.reset();
-          }, 2000);
-        }, 1500);
-      });
-
-      // Enhanced Back to Top Button
-      const backToTopButton = document.getElementById("back-to-top");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.remove("opacity-0", "invisible");
-          backToTopButton.classList.add("opacity-100", "visible");
-        } else {
-          backToTopButton.classList.remove("opacity-100", "visible");
-          backToTopButton.classList.add("opacity-0", "invisible");
+            element.textContent = "";
+            let i = 0;
+            const timer = setInterval(() => {
+              if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+              } else {
+                clearInterval(timer);
+              }
+            }, speed);
+          }, delay);
         }
-      });
 
-      backToTopButton.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
+        // Initialize typing effects
+        typeEffect(elements.devName, "Muhammad Fikri", 150);
+        typeEffect(
+          elements.devTitle,
+          "Network Administrator & Web Developer",
+          100,
+          2000
+        );
 
-      // Testimonial Modal Functionality
-      const addTestimonialBtn = document.getElementById("add-testimonial-btn");
-      const testimonialModal = document.getElementById("testimonial-modal");
-      const closeModal = document.getElementById("close-modal");
-      const cancelTestimonial = document.getElementById("cancel-testimonial");
-      const testimonialForm = document.getElementById("testimonial-form");
-      const starRating = document.getElementById("star-rating");
-      const testimonialsGrid = document.getElementById("testimonials-grid");
+        // Count Up Animation
+        const countUpElements = document.querySelectorAll(".count-up");
 
-      let selectedRating = 5;
+        function animateCountUp() {
+          if (hasAnimated || !countUpElements.length) return;
+          hasAnimated = true;
 
-      // Star Rating Functionality
-      const stars = starRating.querySelectorAll(".star");
-      stars.forEach((star, index) => {
-        star.addEventListener("click", () => {
-          selectedRating = index + 1;
-          updateStarRating();
-        });
+          countUpElements.forEach((element) => {
+            const target = parseInt(element.getAttribute("data-target"));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
 
-        star.addEventListener("mouseover", () => {
-          highlightStars(index + 1);
-        });
-      });
-
-      starRating.addEventListener("mouseleave", () => {
-        updateStarRating();
-      });
-
-      function highlightStars(rating) {
-        stars.forEach((star, index) => {
-          if (index < rating) {
-            star.classList.add("active");
-          } else {
-            star.classList.remove("active");
-          }
-        });
-      }
-
-      function updateStarRating() {
-        highlightStars(selectedRating);
-      }
-
-      // Modal Controls
-      addTestimonialBtn.addEventListener("click", () => {
-        testimonialModal.classList.add("show");
-        document.body.style.overflow = "hidden";
-      });
-
-      function closeTestimonialModal() {
-        testimonialModal.classList.remove("show");
-        document.body.style.overflow = "auto";
-        testimonialForm.reset();
-        selectedRating = 5;
-        updateStarRating();
-      }
-
-      closeModal.addEventListener("click", closeTestimonialModal);
-      cancelTestimonial.addEventListener("click", closeTestimonialModal);
-
-      testimonialModal.addEventListener("click", (e) => {
-        if (e.target === testimonialModal) {
-          closeTestimonialModal();
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+              } else {
+                element.textContent = Math.floor(current);
+              }
+            }, 16);
+          });
         }
-      });
 
-      // Add New Testimonial
-      testimonialForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+        // Animate Skill Bars
+        function animateSkillBars() {
+          const skillBars = document.querySelectorAll(".skill-level-fill");
+          skillBars.forEach((bar, index) => {
+            setTimeout(() => {
+              bar.classList.add("animate");
+            }, index * 200);
+          });
+        }
 
-        const clientName = document.getElementById("client-name").value;
-        const clientPosition = document.getElementById("client-position").value;
-        const clientAvatar =
-          document.getElementById("client-avatar").value ||
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80";
-        const testimonialText =
-          document.getElementById("testimonial-text").value;
+        // Intersection Observer
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (entry.target.id === "skills") {
+                  animateCountUp();
+                  animateSkillBars();
+                }
 
-        const borderColors = [
-          "border-electric-blue/20",
-          "border-purple-glow/20",
-          "border-green-glow/20",
-          "border-pink-glow/20",
-          "border-orange-glow/20",
-          "border-cyan-glow/20",
-        ];
-
-        const randomBorderColor =
-          borderColors[Math.floor(Math.random() * borderColors.length)];
-
-        const newTestimonial = document.createElement("div");
-        newTestimonial.className = `testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border ${randomBorderColor}`;
-        newTestimonial.style.opacity = "0";
-        newTestimonial.style.transform = "translateY(30px)";
-
-        const starsHtml = Array(selectedRating)
-          .fill('<i class="fas fa-star"></i>')
-          .join("");
-
-        newTestimonial.innerHTML = `
-                <div class="testimonial-content">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            ${starsHtml}
-                        </div>
-                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">${selectedRating}.0</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
-                        "${testimonialText}"
-                    </p>
-                </div>
-                <div class="flex items-center">
-                    <img src="${clientAvatar}" alt="${clientName}" class="w-12 h-12 rounded-full object-cover mr-4">
-                    <div>
-                        <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">${clientName}</h4>
-                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">${clientPosition}</p>
-                    </div>
-                </div>
-            `;
-
-        testimonialsGrid.appendChild(newTestimonial);
-
-        // Animate in the new testimonial
-        setTimeout(() => {
-          newTestimonial.style.opacity = "1";
-          newTestimonial.style.transform = "translateY(0)";
-          newTestimonial.style.transition = "all 0.6s ease-out";
-        }, 100);
-
-        closeTestimonialModal();
-
-        // Show success message
-        const submitButton = testimonialForm.querySelector(
-          'button[type="submit"]'
-        );
-        const originalText = submitButton.innerHTML;
-        submitButton.innerHTML =
-          '<i class="fas fa-check mr-2"></i> Added Successfully!';
-        submitButton.style.background =
-          "linear-gradient(to right, #10B981, #059669)";
-
-        setTimeout(() => {
-          submitButton.innerHTML = originalText;
-          submitButton.style.background = "";
-        }, 2000);
-      });
-
-      // Initialize animations and responsive features
-      document.addEventListener("DOMContentLoaded", () => {
-        generateGitHubActivity();
-
-        // Set initial opacity for animated elements
-        const animatedElements = document.querySelectorAll(
-          ".skill-item, .project-card, .certificate-card, .testimonial-card"
-        );
-        animatedElements.forEach((el) => {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(30px)";
-          el.style.transition = "all 0.6s ease-out";
-        });
-
-        // Update star rating
-        updateStarRating();
-      });
-
-      // Responsive GitHub activity regeneration
-      window.addEventListener("resize", () => {
-        generateGitHubActivity();
-      });
-
-      // Set current year in footer
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
-
-      // Add smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
+                const animatedElements = entry.target.querySelectorAll(
+                  ".skill-item, .project-card, .certificate-card, .testimonial-card"
+                );
+                animatedElements.forEach((el, index) => {
+                  setTimeout(() => {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+                  }, index * 100);
+                });
+              }
             });
+          },
+          { threshold: 0.3 }
+        );
 
-            // Close mobile menu if open
-            if (!mobileMenu.classList.contains("hidden")) {
-              mobileMenu.classList.add("hidden");
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+
+        // Generate GitHub Activity Heatmap
+        function generateGitHubActivity() {
+          if (!elements.githubActivity) return;
+
+          const weeks = window.innerWidth < 768 ? 26 : 53;
+          const daysPerWeek = 7;
+
+          elements.githubActivity.innerHTML = "";
+
+          for (let week = 0; week < weeks; week++) {
+            for (let day = 0; day < daysPerWeek; day++) {
+              const activityLevel = Math.floor(Math.random() * 5);
+              const dayElement = document.createElement("div");
+              dayElement.className = `activity-day activity-${activityLevel}`;
+              dayElement.title = `${Math.floor(
+                Math.random() * 10
+              )} contributions`;
+              elements.githubActivity.appendChild(dayElement);
             }
           }
-        });
-      });
-
-      // Add parallax effect to hero section
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll(".parallax-bg");
-
-        parallaxElements.forEach((element) => {
-          const speed = 0.5;
-          element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-      });
-
-      // Enhanced keyboard navigation
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && testimonialModal.classList.contains("show")) {
-          closeTestimonialModal();
         }
-      });
+
+        // Back to Top Button
+        if (elements.backToTopButton) {
+          function updateBackToTopButton() {
+            if (window.pageYOffset > 300) {
+              elements.backToTopButton.classList.remove(
+                "opacity-0",
+                "invisible"
+              );
+              elements.backToTopButton.classList.add("opacity-100", "visible");
+            } else {
+              elements.backToTopButton.classList.remove(
+                "opacity-100",
+                "visible"
+              );
+              elements.backToTopButton.classList.add("opacity-0", "invisible");
+            }
+          }
+
+          window.addEventListener("scroll", updateBackToTopButton);
+
+          elements.backToTopButton.addEventListener("click", () => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
+        }
+
+        // Testimonial Modal Functionality
+        if (elements.starRating) {
+          const stars = elements.starRating.querySelectorAll(".star");
+
+          stars.forEach((star, index) => {
+            star.addEventListener("click", () => {
+              selectedRating = index + 1;
+              updateStarRating();
+            });
+
+            star.addEventListener("mouseover", () => {
+              highlightStars(index + 1);
+            });
+          });
+
+          elements.starRating.addEventListener("mouseleave", () => {
+            updateStarRating();
+          });
+
+          function highlightStars(rating) {
+            stars.forEach((star, index) => {
+              if (index < rating) {
+                star.classList.add("active");
+              } else {
+                star.classList.remove("active");
+              }
+            });
+          }
+
+          function updateStarRating() {
+            highlightStars(selectedRating);
+          }
+
+          // Initialize star rating
+          updateStarRating();
+        }
+
+        // Modal Controls
+        function closeTestimonialModal() {
+          if (elements.testimonialModal) {
+            elements.testimonialModal.classList.remove("show");
+            document.body.style.overflow = "auto";
+            if (elements.testimonialForm) {
+              elements.testimonialForm.reset();
+            }
+            selectedRating = 5;
+            if (elements.starRating) {
+              const stars = elements.starRating.querySelectorAll(".star");
+              stars.forEach((star, index) => {
+                if (index < selectedRating) {
+                  star.classList.add("active");
+                } else {
+                  star.classList.remove("active");
+                }
+              });
+            }
+          }
+        }
+
+        if (elements.addTestimonialBtn) {
+          elements.addTestimonialBtn.addEventListener("click", () => {
+            elements.testimonialModal.classList.add("show");
+            document.body.style.overflow = "hidden";
+          });
+        }
+
+        if (elements.closeModal) {
+          elements.closeModal.addEventListener("click", closeTestimonialModal);
+        }
+
+        if (elements.cancelTestimonial) {
+          elements.cancelTestimonial.addEventListener(
+            "click",
+            closeTestimonialModal
+          );
+        }
+
+        if (elements.testimonialModal) {
+          elements.testimonialModal.addEventListener("click", (e) => {
+            if (e.target === elements.testimonialModal) {
+              closeTestimonialModal();
+            }
+          });
+        }
+
+        // Add New Testimonial
+        if (elements.testimonialForm) {
+          elements.testimonialForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const clientName = document.getElementById("client-name").value;
+            const clientPosition =
+              document.getElementById("client-position").value;
+            const clientAvatar =
+              document.getElementById("client-avatar").value ||
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80";
+            const testimonialText =
+              document.getElementById("testimonial-text").value;
+
+            const borderColors = [
+              "border-electric-blue/20",
+              "border-purple-glow/20",
+              "border-green-glow/20",
+              "border-pink-glow/20",
+              "border-orange-glow/20",
+              "border-cyan-glow/20",
+            ];
+
+            const randomBorderColor =
+              borderColors[Math.floor(Math.random() * borderColors.length)];
+            const newTestimonial = document.createElement("div");
+            newTestimonial.className = `testimonial-card rounded-xl p-4 sm:p-6 shadow-neuro-light dark:shadow-neuro-dark bg-light-card dark:bg-dark-card glass dark:glass border ${randomBorderColor}`;
+            newTestimonial.style.opacity = "0";
+            newTestimonial.style.transform = "translateY(30px)";
+
+            const starsHtml = Array(selectedRating)
+              .fill('<i class="fas fa-star"></i>')
+              .join("");
+
+            newTestimonial.innerHTML = `
+              <div class="testimonial-content">
+                  <div class="flex items-center mb-4">
+                      <div class="flex text-yellow-400">
+                          ${starsHtml}
+                      </div>
+                      <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">${selectedRating}.0</span>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-400 mb-6 italic leading-relaxed text-sm sm:text-base">
+                      "${testimonialText}"
+                  </p>
+              </div>
+              <div class="flex items-center">
+                  <img src="${clientAvatar}" alt="${clientName}" class="w-12 h-12 rounded-full object-cover mr-4">
+                  <div>
+                      <h4 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">${clientName}</h4>
+                      <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">${clientPosition}</p>
+                  </div>
+              </div>
+            `;
+
+            if (elements.testimonialsGrid) {
+              elements.testimonialsGrid.appendChild(newTestimonial);
+
+              setTimeout(() => {
+                newTestimonial.style.opacity = "1";
+                newTestimonial.style.transform = "translateY(0)";
+                newTestimonial.style.transition = "all 0.6s ease-out";
+              }, 100);
+            }
+
+            closeTestimonialModal();
+
+            const submitButton = elements.testimonialForm.querySelector(
+              'button[type="submit"]'
+            );
+            if (submitButton) {
+              const originalText = submitButton.innerHTML;
+              submitButton.innerHTML =
+                '<i class="fas fa-check mr-2"></i> Added Successfully!';
+              submitButton.style.background =
+                "linear-gradient(to right, #10B981, #059669)";
+
+              setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.style.background = "";
+              }, 2000);
+            }
+          });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+
+              if (
+                elements.mobileMenu &&
+                !elements.mobileMenu.classList.contains("hidden")
+              ) {
+                elements.mobile.classList.add("hidden");
+              }
+            }
+          });
+        });
+
+        // Set current year in footer
+        if (elements.currentYear) {
+          elements.currentYear.textContent = new Date().getFullYear();
+        }
+
+        // Enhanced keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (
+            e.key === "Escape" &&
+            elements.testimonialModal &&
+            elements.testimonialModal.classList.contains("show")
+          ) {
+            closeTestimonialModal();
+          }
+        });
+
+        // Initialize on DOM load
+        document.addEventListener("DOMContentLoaded", () => {
+          generateGitHubActivity();
+
+          // Set initial opacity for animated elements
+          const animatedElements = document.querySelectorAll(
+            ".skill-item, .project-card, .certificate-card, .testimonial-card"
+          );
+          animatedElements.forEach((el) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 0.6s ease-out";
+          });
+        });
+
+        // Responsive GitHub activity regeneration
+        window.addEventListener("resize", () => {
+          generateGitHubActivity();
+        });
+
+        // Initial call to generate GitHub activity
+        generateGitHubActivity();
+      })();
     </script>
   </body>
 </html>
